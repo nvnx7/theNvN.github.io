@@ -1,0 +1,19 @@
+{
+  "name": "my-page",
+  "version": "1.0.0",
+  "description": "My Personal Page",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/theNvN/my-page.git"
+  },
+  "author": "Naveen Sahu",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/theNvN/my-page/issues"
+  },
+  "homepage": "https://github.com/theNvN/my-page#readme"
+}
