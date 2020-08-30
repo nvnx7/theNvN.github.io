@@ -1,4 +1,5 @@
 const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin");
@@ -26,6 +27,7 @@ module.exports = {
           "style-loader",
           MiniCssExtractPlugin.loader,
           "css-loader",
+          "postcss-loader",
           "sass-loader",
         ],
       },
@@ -35,7 +37,7 @@ module.exports = {
         use: {
           loader: "babel-loader",
           options: {
-            presets: ["env"],
+            presets: ["@babel/preset-env"],
           },
         },
       },
@@ -47,5 +49,13 @@ module.exports = {
       new OptimizeCssAssetsPlugin(),
     ],
   },
-  plugins: [new MiniCssExtractPlugin({ filename: "css/[name].css" })],
+  plugins: [
+    new MiniCssExtractPlugin({ filename: "css/[name].css" }),
+    new HtmlWebpackPlugin({
+      inject: true,
+      hash: false,
+      filename: "index.html",
+      template: path.resolve(__dirname, "src", "index.html"),
+    }),
+  ],
 };
