@@ -5,13 +5,18 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 
 module.exports = {
-  mode: "production",
+  mode: "development",
   entry: {
     main: "./src/js/main.js",
   },
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "js/[name].js",
+  },
+  devServer: {
+    port: 8080,
+    contentBase: path.resolve(__dirname, "dist"),
+    watchContentBase: true,
   },
   module: {
     rules: [
