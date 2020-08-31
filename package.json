@@ -4,7 +4,8 @@
   "description": "My Personal Page",
   "main": "index.js",
   "scripts": {
-    "build": "webpack"
+    "build": "webpack",
+    "dev": "webpack-dev-server"
   },
   "repository": {
     "type": "git",
@@ -18,6 +19,7 @@
   "homepage": "https://github.com/theNvN/my-page#readme",
   "devDependencies": {
     "@babel/core": "^7.11.4",
+    "@babel/preset-env": "^7.11.0",
     "autoprefixer": "^9.8.6",
     "babel-loader": "^8.1.0",
     "css-loader": "^4.2.2",
@@ -27,6 +29,7 @@
     "mini-css-extract-plugin": "^0.11.0",
     "optimize-css-assets-webpack-plugin": "^5.0.3",
     "postcss-loader": "^3.0.0",
+    "sass": "^1.26.10",
     "sass-loader": "^10.0.1",
     "style-loader": "^1.2.1",
     "terser-webpack-plugin": "^4.1.0",
@@ -34,8 +37,5 @@
     "webpack-cli": "^3.3.12",
     "webpack-dev-server": "^3.11.0"
   },
-  "dependencies": {
-    "@babel/preset-env": "^7.11.0",
-    "sass": "^1.26.10"
-  }
+  "dependencies": {}
 }
