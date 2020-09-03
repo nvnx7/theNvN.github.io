@@ -5,34 +5,37 @@ class SmallWidthNavbar {
   constructor(query) {
     this.elem = document.querySelector(query);
     this.labels = this.elem.querySelectorAll(".js-link-label");
-    this.anim = anime({
+  }
+
+  open() {
+    anime({
       duration: 600,
-      autoplay: false,
+      autoplay: true,
       easing: "easeOutCubic",
       targets: this.elem,
-      translateX: "-100%",
+      translateX: [0, "-100%"],
       begin: () => {
-        for (let label of this.labels) {
-          new ScrambleText(label, 100).scramble();
-        }
+        this.labels.forEach((elem) => {
+          new ScrambleText(elem, 100).scramble();
+        });
       },
     });
   }
 
-  open() {
-    console.log("Open!");
-    if (this.anim.reversed) {
-      this.anim.reverse();
-    }
-    this.anim.play();
-  }
-
   close() {
-    console.log("Close!");
-    if (!this.anim.reversed) {
-      this.anim.reverse();
-    }
-    this.anim.play();
+    anime({
+      duration: 500,
+      autoplay: true,
+      easing: "easeOutCubic",
+      targets: this.elem,
+      translateX: [0, "-100%"],
+      direction: "reverse",
+      begin: () => {
+        this.labels.forEach((elem) => {
+          new ScrambleText(elem, 100).scramble(true);
+        });
+      },
+    });
   }
 }
 
