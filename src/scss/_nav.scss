@@ -1,16 +1,17 @@
 .header {
+  position: relative;
   width: 100vw;
   position: fixed;
   top: 0;
   background-color: gray;
-  z-index: 100;
   box-shadow: 0 4px 12px #ccc;
+  z-index: 100;
   // padding: 8px;
 
   &__logo {
     float: left;
-    width: 64px;
-    height: 64px;
+    width: 48px;
+    height: 48px;
     background-color: yellow;
     margin: 16px;
   }
@@ -20,8 +21,8 @@
   position: relative;
   float: right;
   cursor: pointer;
-  width: 64px;
-  height: 64px;
+  width: 48px;
+  height: 48px;
   margin: 16px;
 
   &__bar {
@@ -51,67 +52,69 @@
 }
 
 .nav {
+  $this: &;
+
   position: fixed;
-  width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  box-shadow: -4px 0 24px #ccc;
-  left: 100%;
-
-  &--large-width {
-    display: none;
-  }
+  z-index: 50;
 
   &__link {
-    width: 50%;
-    font-size: 4em;
     text-decoration: none;
     color: black;
-    padding: 24px;
     font-weight: bold;
   }
 
   &__link-label {
     text-align: left;
   }
+
+  &--small-width {
+    width: 100%;
+    box-shadow: -4px 0 24px #ccc;
+    left: 100%;
+    font-size: 3.5em;
+
+    & #{$this}__link {
+      width: 50%;
+      padding: 24px;
+    }
+  }
+
+  &--large-width {
+    // display: fix;
+    border-left: 1px solid whitesmoke;
+    left: 10%;
+    mix-blend-mode: difference;
+    align-items: flex-start;
+
+    & #{$this}__link {
+      display: flex;
+      font-size: 0.8em;
+      color: whitesmoke;
+      justify-content: flex-start;
+      align-items: center;
+      margin: 8px 0;
+    }
+
+    & #{$this}__link-label {
+      overflow: hidden;
+      font-weight: bold;
+      margin-left: 8px;
+    }
+
+    & #{$this}__link-indicator {
+      width: 5px;
+      height: 1px;
+      background-color: whitesmoke;
+      margin-right: 4px;
+    }
+
+    & #{$this}__link-number {
+      width: fit-content;
+    }
+  }
 }
-
-// .nav {
-//   position: fixed;
-//   display: flex;
-//   flex-direction: column;
-//   justify-content: center;
-//   height: 100vh;
-//   border-left: 2px solid whitesmoke;
-//   left: 8%;
-//   mix-blend-mode: difference;
-
-//   &__link {
-//     width: fit-content;
-//     display: flex;
-//     align-items: center;
-//     justify-content: flex-start;
-//     margin: 10px 0;
-//     color: whitesmoke;
-//     font-size: 0.8em;
-//     font-weight: bold;
-//     cursor: pointer;
-//     text-decoration: none;
-//   }
-
-//   &__link-indicator {
-//     width: 5px;
-//     height: 2px;
-//     background-color: whitesmoke;
-//     margin-right: 4px;
-//   }
-
-//   &__link-label {
-//     overflow: hidden;
-//     font-weight: bold;
-//     margin-left: 4px;
-//   }
-// }
