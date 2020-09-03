@@ -85,7 +85,6 @@
   }
 
   &--large-width {
-    // display: fix;
     border-left: 1px solid whitesmoke;
     left: 10%;
     mix-blend-mode: difference;
@@ -103,7 +102,7 @@
     & #{$this}__link-label {
       overflow: hidden;
       font-weight: bold;
-      margin-left: 8px;
+      margin-left: 4px;
     }
 
     & #{$this}__link-indicator {
@@ -115,6 +114,7 @@
 
     & #{$this}__link-number {
       width: fit-content;
+      opacity: 0.4;
     }
   }
 }
