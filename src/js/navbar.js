@@ -67,7 +67,7 @@ class LargeWidthNavbar {
       .add(
         {
           targets: numberElem,
-          opacity: [0.4, 1],
+          opacity: [0.2, 1],
           begin: () => {
             new ScrambleText(labelElem).scramble(reverse);
           },
