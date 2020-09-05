@@ -1,35 +1,55 @@
+@use "variables" as v;
+@use "mixins" as mx;
+
 .header {
-  position: relative;
-  width: 100vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
   position: fixed;
   top: 0;
-  background-color: gray;
-  box-shadow: 0 4px 12px #ccc;
+  background-color: v.$color-secondary;
+  // background: none;
   z-index: 100;
-  // padding: 8px;
+  border-bottom: solid v.$color-tertiary 1px;
 
   &__logo {
-    float: left;
-    width: 48px;
-    height: 48px;
-    background-color: yellow;
-    margin: 16px;
+    width: 64px;
+    height: 64px;
+    margin: 0 4px;
+
+    @include mx.screen-m {
+      width: 80%;
+      height: 80%;
+      margin: 0;
+    }
+  }
+
+  @include mx.screen-m {
+    display: flex;
+    width: 10%;
+    height: 15%;
+    justify-content: center;
   }
 }
 
 .btn-toggle-nav {
   position: relative;
-  float: right;
   cursor: pointer;
-  width: 48px;
-  height: 48px;
-  margin: 16px;
+  width: 32px;
+  height: 32px;
+  margin: 2px 4px;
+
+  @include mx.screen-m {
+    display: none;
+  }
 
   &__bar {
     position: absolute;
     width: 100%;
     height: 2px;
-    background-color: black;
+    mix-blend-mode: difference;
+    background-color: v.$color-tertiary;
 
     &--top {
       top: 0;
@@ -74,7 +94,12 @@
 
   &--small-width {
     width: 100%;
-    box-shadow: -4px 0 24px #ccc;
+    background-color: v.$color-tertiary;
+
+    @include mx.screen-m {
+      display: none;
+    }
+
     left: 100%;
     font-size: 3.5em;
 
@@ -85,10 +110,15 @@
   }
 
   &--large-width {
+    display: none;
     border-left: 1px solid whitesmoke;
-    left: 10%;
+    left: v.$nav-offset;
     mix-blend-mode: difference;
     align-items: flex-start;
+
+    @include mx.screen-m {
+      display: flex;
+    }
 
     & #{$this}__link {
       display: flex;
@@ -114,7 +144,7 @@
 
     & #{$this}__link-number {
       width: fit-content;
-      opacity: 0.4;
+      opacity: 0.2;
     }
   }
 }

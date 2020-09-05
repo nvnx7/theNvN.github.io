@@ -10,8 +10,11 @@
 }
 
 .logo {
-  width: 500px;
-  height: 500px;
+  max-width: 500px;
+  min-width: 300px;
+  // max-height: 500px;
+  width: 80%;
+
   //   border: solid 1px red;
 
   @include mx.screen-m {
@@ -22,8 +25,14 @@
 .text-greet {
   color: v.$color-tertiary;
   font-family: v.$font-overpass;
-  font-size: 4rem;
+  font-size: 3rem;
+  text-align: center;
+
   @include mx.screen-m {
     margin-left: v.$nav-offset;
+  }
+
+  @include mx.screen-s {
+    font-size: 4rem;
   }
 }
