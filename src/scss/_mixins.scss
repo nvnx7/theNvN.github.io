@@ -1,0 +1,19 @@
+@use "variables" as v;
+
+@mixin screen-s {
+  @media only screen and (min-width: v.$width-s) {
+    @content;
+  }
+}
+
+@mixin screen-m {
+  @media only screen and (min-width: v.$width-m) {
+    @content;
+  }
+}
+
+@mixin screen-l {
+  @media only screen and (min-width: v.$width-l) {
+    @content;
+  }
+}
