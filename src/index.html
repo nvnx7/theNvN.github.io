@@ -2,10 +2,37 @@
 <html>
   <head>
     <title>Naveen</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Overpass:wght@800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <header class="header">
-      <div class="header__logo">X</div>
+      <svg class="header__logo" viewBox="0 0 500 500">
+        <path
+          class="logo__fragment"
+          fill="#ea5455"
+          stroke="#ea5455"
+          stroke-width="6"
+          stroke-dasharray="700"
+          d="M248.43 150.45 L249.63 149.05 L263.13 220.7 L124.63 380.75 L46.5 380.75Z"
+        />
+
+        <path
+          class="logo__fragment"
+          fill="#e5e5e5"
+          stroke="#e5e5e5"
+          stroke-width="6"
+          stroke-dasharray="700"
+          d="M263.08 353.73 L262.08 354.83 L248.57 283.17 L387.08 123.13 L465.2 123.13Z"
+        />
+      </svg>
       <div class="btn-toggle-nav btn-toggle-nav--is-open js-btn-toggle-nav">
         <div class="btn-toggle-nav__bar btn-toggle-nav__bar--top"></div>
         <div class="btn-toggle-nav__bar btn-toggle-nav__bar--center"></div>
@@ -88,7 +115,7 @@
         id="section-intro"
         class="full-page__section full-page__section--intro js-full-page-section"
       >
-        <svg class="logo" width="500" height="500" viewBox="0 0 500 500">
+        <svg class="logo" viewBox="0 0 500 500">
           <path
             class="logo__fragment js-logo-fragment-first"
             fill="#ea5455"
@@ -177,15 +204,55 @@
             />
           </g>
         </svg>
+        <div class="text-greet">
+          <div
+            class="text-appear text-appear--salutation js-text-greet-salutation"
+          >
+            <div class="text-appear__line-top js-line-top"></div>
+            <div class="text-appear__text js-text">Hi. I'm</div>
+            <div class="text-appear__line-bottom js-line-bottom"></div>
+          </div>
+
+          <div
+            class="text-appear text-appear--text-greet-name js-text-greet-name"
+          >
+            <div class="text-appear__line-top js-line-top"></div>
+            <div class="text-appear__text js-text">Naveen.</div>
+            <div class="text-appear__line-bottom js-line-bottom"></div>
+          </div>
+        </div>
       </section>
 
       <section
         id="section-about"
-        class="full-page__section js-full-page-section"
-      ></section>
+        class="full-page__section full-page__section--about js-full-page-section"
+      >
+        <div class="text-appear text-appear--text-about js-text-about">
+          <div class="text-appear__line-top js-line-top"></div>
+          <div class="text-appear__text js-text">
+            I am a developer based in India
+          </div>
+          <span class="text-appear__text js-text red-text">&</span>
+          <span class="text-appear__text js-text">
+            I can code some dope stuff.
+          </span>
+          <div class="text-appear__line-bottom js-line-bottom"></div>
+        </div>
+
+        <div class="text-about-para">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+          culpa qui officia deserunt mollit anim id est laborum.
+        </div>
+      </section>
+
       <section
         id="section-skills"
-        class="full-page__section js-full-page-section"
+        class="full-page__section full-page__section--skills js-full-page-section"
       ></section>
       <section
         id="section-projects"
