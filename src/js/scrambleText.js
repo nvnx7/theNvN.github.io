@@ -25,7 +25,6 @@ export default class ScrambleText {
 
     txt += this.config.originalTxt.slice(0, len);
     txt += this.chars.charAt(Math.floor(Math.random() * this.chars.length));
-    console.log(txt);
     return txt;
   }
 
