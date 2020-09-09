@@ -1,0 +1,42 @@
+@use "variables" as v;
+@use "mixins" as mx;
+
+.full-page__section--about {
+  padding-left: 36px;
+
+  @include mx.screen-m {
+    padding-left: v.$nav-offset;
+  }
+}
+
+.text-appear {
+  &--text-about {
+    max-width: 640px;
+    font-size: v.$font-size-m;
+    margin-top: 48px;
+
+    @include mx.screen-s {
+      font-size: v.$font-size-l;
+    }
+
+    @include mx.screen-m {
+      font-size: v.$font-size-xl;
+      margin-left: 96px;
+    }
+  }
+}
+
+.red-text {
+  color: v.$color-primary;
+}
+
+.text-about-para {
+  max-width: 640px;
+  font-family: v.$font-open-sans;
+  font-weight: 400;
+  margin-top: 24px;
+
+  @include mx.screen-m {
+    margin-left: 96px;
+  }
+}
