@@ -3,11 +3,24 @@
 .text-appear {
   width: fit-content;
   position: relative;
-  overflow: hidden;
+  // overflow: hidden;
   //   border: solid red 1px;
 
   &__text {
     width: fit-content;
+
+    .text-piece-wrapper {
+      display: inline-block;
+      position: relative;
+      height: fit-content;
+      overflow: hidden;
+    }
+
+    .text-piece {
+      display: inline-block;
+      line-height: 1;
+      padding-right: 0.25em;
+    }
   }
 
   &__line-top {
