@@ -843,10 +843,10 @@ export default function playLowPolyPicAnim(query) {
     direction: "reverse",
     easing: "easeInExpo",
     translateX: function () {
-      return anime.random(-500, 500);
+      return anime.random(0, 256);
     },
     translateY: function () {
-      return anime.random(-500, 500);
+      return anime.random(0, 256);
     },
     rotate: function () {
       return anime.random(-360, 360);
