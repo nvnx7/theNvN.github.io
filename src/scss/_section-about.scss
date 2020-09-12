@@ -2,7 +2,9 @@
 @use "mixins" as mx;
 
 .full-page__section--about {
+  position: relative;
   padding-left: 36px;
+  overflow: hidden;
 
   @include mx.screen-m {
     padding-left: v.$nav-offset;
@@ -31,12 +33,28 @@
 }
 
 .text-about-para {
-  max-width: 640px;
+  max-width: 612px;
   font-family: v.$font-open-sans;
   font-weight: 400;
   margin-top: 24px;
 
   @include mx.screen-m {
     margin-left: 96px;
+  }
+}
+
+.low-poly-pic {
+  display: none;
+  position: absolute;
+  width: 38%;
+  max-width: 512px;
+  top: 96px;
+  right: 18px;
+  // border: solid 1px black;
+  background-color: transparent;
+  transform: rotate(30deg);
+
+  @include mx.screen-l {
+    display: initial;
   }
 }
