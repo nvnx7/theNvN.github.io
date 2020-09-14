@@ -1,0 +1,36 @@
+@use "variables" as v;
+@use "mixins" as mx;
+
+.full-page__section--skills {
+  position: relative;
+  padding-left: 36px;
+
+  @include mx.screen-m {
+    padding-left: v.$nav-offset;
+  }
+}
+
+.text-appear {
+  &--text-skills {
+    max-width: 796px;
+    font-size: v.$font-size-m;
+    margin-top: 36px;
+
+    @include mx.screen-s {
+      font-size: v.$font-size-l;
+    }
+
+    @include mx.screen-m {
+      font-size: v.$font-size-xl;
+      margin-left: 96px;
+    }
+  }
+}
+
+.wrapper-skills {
+  height: 80%;
+  border: solid 1px gray;
+  @include mx.screen-m {
+    margin-left: 96px;
+  }
+}
