@@ -4,6 +4,8 @@ const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin");
+const ImageMinPlugin = require("imagemin-webpack-plugin").default;
+const CopyWebpackPlugin = require("copy-webpack-plugin");
 
 module.exports = {
   mode: "development",
@@ -47,6 +49,15 @@ module.exports = {
           },
         },
       },
+      {
+        test: /\.(png|gif|jpg|jpeg|svg)$/,
+        use: [
+          {
+            loader: "url-loader",
+            options: { name: "images/[name].[ext]", limit: 8192 },
+          },
+        ],
+      },
     ],
   },
   optimization: {
@@ -63,6 +74,16 @@ module.exports = {
       filename: "index.html",
       template: path.resolve(__dirname, "src", "index.html"),
     }),
+    new ImageMinPlugin({ test: /\.(jpg|jpeg|png|gif|svg)$/i }),
     new CleanWebpackPlugin(),
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: path.resolve(__dirname, "src", "images"),
+          to: path.resolve(__dirname, "dist", "images"),
+          toType: "dir",
+        },
+      ],
+    }),
   ],
 };
