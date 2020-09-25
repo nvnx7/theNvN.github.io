@@ -2,11 +2,7 @@
 @use "mixins" as mx;
 
 .full-page__section--skills {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
   position: relative;
-  // padding-left: 36px;
 
   @include mx.screen-m {
     padding-left: v.$nav-offset;
@@ -19,67 +15,168 @@
     font-size: v.$font-size-m;
     margin-top: 8px;
     margin-left: 16px;
+    // border: solid 1px red;
+    transition: opacity 0.4s ease-out, color 0.5s;
+
+    &.transparent {
+      // color: rgba(245, 245, 245, 0.2);
+      opacity: 0.05;
+    }
+
+    &.hide {
+      display: none;
+    }
 
     @include mx.screen-s {
-      font-size: v.$font-size-l;
+      font-size: v.$font-size-m;
     }
 
     @include mx.screen-m {
       font-size: v.$font-size-xl;
-      margin-left: 96px;
+      margin-left: 124px;
+    }
+
+    .skill-name {
+      cursor: pointer;
+      color: v.$color-primary;
+
+      .text-piece {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+.skill-preview {
+  width: 450px;
+  height: 430px;
+  position: fixed;
+  color: v.$color-tertiary;
+
+  &.hide {
+    display: none;
+  }
+
+  &__prompt {
+    position: absolute;
+    left: 0;
+    top: 45%;
+    font-size: v.$font-size-l;
+    overflow: visible;
+    white-space: nowrap;
+    z-index: 12;
+    background-color: v.$color-primary;
+  }
+
+  &__box {
+    position: absolute;
+    background-color: v.$color-secondary;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 96px;
+    overflow: hidden;
+  }
+
+  &__title {
+    font-size: v.$font-size-l;
+    padding: 8px;
+  }
+
+  &__icon {
+    position: absolute;
+    transform: rotate(-90deg);
+    height: 300px;
+    opacity: 0.2;
+    top: 0;
+    bottom: 0;
+    margin-top: auto;
+    margin-bottom: auto;
+
+    &--web {
+      right: -45%;
+    }
+
+    &--android {
+      right: -36%;
+    }
+
+    &--ml {
+      right: -35%;
+    }
+
+    &--ethereum {
+      right: -10%;
+      transform: none;
     }
   }
 }
 
 .skills {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: stretch;
   position: relative;
   flex-grow: 1;
-  border: solid 1px gray;
+
+  @include mx.screen-m {
+    margin-left: 76px;
+  }
 
   &__skill-description {
-    width: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 40%;
-    padding-left: 16px;
+    min-width: 60%;
+    position: relative;
+    // width: 100%;
+    // position: absolute;
+    // top: 0;
+    // left: 0;
+    // bottom: 40%;
+    // padding-left: 16px;
+    // flex-grow: 1;
     overflow: hidden;
   }
 
   &__skill-names {
+    min-height: 36px;
+    font-size: v.$font-size-l;
     width: fit-content;
-
     position: relative;
-  }
+    padding-left: 16px;
+    // mix-blend-mode: difference;
+    color: v.$color-primary;
+    z-index: 10;
 
-  &__skill-name {
-    display: none;
-    // position: absolute;
-    font-size: v.$font-size-m;
-    top: 0;
-    left: 0;
+    @include mx.screen-s {
+      min-height: 42px;
+    }
 
-    &--web {
-      display: initial;
+    @include mx.screen-m {
+      min-height: 48px;
     }
   }
 
   &__skill-texts {
     width: 100%;
-    height: 40%;
-    position: relative;
-    margin-top: 8px;
-    border-left: solid 4px v.$color-primary;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    top: 32px;
+    // margin-top: 8px;
+    // border-left: solid 2px v.$color-primary;
     overflow: hidden;
+    background-color: v.$color-secondary;
   }
 
   &__skill-text {
     position: absolute;
     width: 100%;
     height: 100%;
+    top: 32px;
     padding-left: 8px;
-    padding-right: 4px;
+    // padding-right: 4px;
     transform: translateX(100%);
+    color: v.$color-tertiary;
 
     &--web {
       transform: translateX(0);
@@ -87,13 +184,8 @@
   }
 
   &__tools {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    top: 40%;
-    background-color: v.$color-secondary;
-    clip-path: polygon(0 40%, 100% 0, 100% 100%, 0 100%);
+    min-width: 40%;
+    // clip-path: polygon(0 40%, 100% 0, 100% 100%, 0 100%);
   }
 
   &__tools-label {
@@ -102,8 +194,8 @@
     right: 0;
     margin-bottom: 8px;
     margin-right: 16px;
-    font-size: v.$font-size-m;
-    color: v.$color-tertiary;
+    font-size: v.$font-size-s;
+    // color: v.$color-tertiary;
   }
 
   &__tools-containers {
@@ -132,24 +224,33 @@
   &__tools-row {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    align-items: stretch;
+    justify-content: space-around;
+    align-items: center;
     width: 64px;
-    height: 60%;
-    border: solid 1px red;
+    height: 64%;
+    // border: solid 1px red;
 
     @for $i from 0 through 3 {
       &:nth-child(#{$i + 1}) {
-        transform: translateY(-$i * 10%);
+        transform: translateY(-$i * 12%);
       }
     }
   }
 
   &__tool-item {
-    width: 42px;
-    height: 42px;
-    background-color: red;
+    max-width: 36px;
+    max-height: 36px;
     float: right;
+
+    @include mx.screen-s {
+      max-width: 42px;
+      max-height: 42px;
+    }
+
+    @include mx.screen-m {
+      max-width: 48px;
+      max-height: 48px;
+    }
   }
 
   &__nav-btn-container {
@@ -164,11 +265,27 @@
   }
 
   &__nav-btn {
+    position: relative;
     width: 28px;
-    height: 4px;
-    border: solid 0.5px v.$color-primary;
+    height: 28px;
     float: left;
     margin: 4px;
     cursor: pointer;
+
+    &::after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 4px;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+      left: 0;
+      border: solid 0.5px v.$color-primary;
+    }
+
+    &.active::after {
+      background-color: v.$color-primary;
+    }
   }
 }
