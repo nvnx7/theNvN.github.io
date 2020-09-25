@@ -1,8 +1,9 @@
 import anime from "animejs/lib/anime.es.js";
 
 export default class TextAppearAnim {
-  constructor(query) {
+  constructor(query, options = {}) {
     this.elem = document.querySelector(query);
+    this.options = options;
     const textElemList = this.elem.querySelectorAll(".js-text");
     for (let textElem of textElemList) {
       const pieces = textElem.textContent
@@ -15,16 +16,22 @@ export default class TextAppearAnim {
     }
   }
 
-  play() {
+  play(reverse = false, callbackOptions = {}) {
     anime
       .timeline({
+        ...this.options,
         duration: 1000,
         easing: "easeOutExpo",
+        direction: reverse ? "reverse" : "normal",
       })
-      .add({
-        targets: this.elem.querySelector(".js-line-top"),
-        right: ["100%", 0],
-      })
+      .add(
+        {
+          targets: this.elem.querySelector(".js-line-top"),
+          right: ["100%", 0],
+          begin: callbackOptions.begin,
+        },
+        0
+      )
       .add(
         {
           targets: this.elem.querySelector(".js-line-bottom"),
@@ -35,8 +42,8 @@ export default class TextAppearAnim {
       .add(
         {
           targets: ".text-piece",
-          translateY: ["100%", 0],
-          duration: 1500,
+          translateY: ["110%", 0],
+          complete: callbackOptions.complete,
         },
         0
       );
