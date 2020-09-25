@@ -1,5 +1,5 @@
 import anime from "animejs/lib/anime.es.js";
-import ScrambleText from "./scrambleText.js";
+import { ScrambleText } from "./scrambleText.js";
 
 class SmallWidthNavbar {
   constructor(query) {
@@ -16,7 +16,7 @@ class SmallWidthNavbar {
       translateX: [0, "-100%"],
       begin: () => {
         this.labels.forEach((elem) => {
-          new ScrambleText(elem, 100).scramble();
+          new ScrambleText(elem, { delay: 100 }).scramble();
         });
       },
     });
@@ -32,7 +32,7 @@ class SmallWidthNavbar {
       direction: "reverse",
       begin: () => {
         this.labels.forEach((elem) => {
-          new ScrambleText(elem, 100).scramble(true);
+          new ScrambleText(elem, { delay: 100 }).scramble(true);
         });
       },
     });
