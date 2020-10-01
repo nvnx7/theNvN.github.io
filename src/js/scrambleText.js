@@ -55,13 +55,9 @@ class ScrambleTexts {
   }
 
   scrambleTo(idx) {
-    new ScrambleText(this.elem, {
-      complete: () => {
-        this.elem.setAttribute("data-label", this.labels[idx]);
-        new ScrambleText(this.elem).scramble();
-        console.log("Complete anim");
-      },
-    }).scramble(true);
+    // console.log(`Scramble to idx ${idx}, ${this.labels[idx]}`);
+    this.elem.setAttribute("data-label", this.labels[idx]);
+    new ScrambleText(this.elem).scramble();
   }
 }
 
