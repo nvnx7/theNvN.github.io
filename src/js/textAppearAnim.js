@@ -2,8 +2,10 @@ import anime from "animejs/lib/anime.es.js";
 
 export default class TextAppearAnim {
   constructor(query, options = {}) {
-    this.elem = document.querySelector(query);
+    if (typeof query === "string") this.elem = document.querySelector(query);
+    else this.elem = query;
     this.options = options;
+
     const textElemList = this.elem.querySelectorAll(".js-text");
     for (let textElem of textElemList) {
       const pieces = textElem.textContent
@@ -20,7 +22,7 @@ export default class TextAppearAnim {
     anime
       .timeline({
         ...this.options,
-        duration: 1000,
+        duration: this.options.duration ?? 1000,
         easing: "easeOutExpo",
         direction: reverse ? "reverse" : "normal",
       })
