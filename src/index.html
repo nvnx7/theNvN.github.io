@@ -316,7 +316,7 @@
           </div>
         </div>
 
-        <div class="text-appear text-appear--text-skills js-text-skills">
+        <div class="text-appear text-appear--text-skills js-text-skills hide">
           <div class="text-appear__line-top js-line-top"></div>
           <span class="text-appear__text js-text"
             >I can do a thing or two. That includes building on</span
@@ -348,238 +348,152 @@
           <div class="text-appear__line-bottom js-line-bottom"></div>
         </div>
 
-        <!-- <div class="skills">
-          <div class="skills__skill-description">
-            <div
-              class="skills__skill-names js-skill-names"
-              data-labels="WEB,ANDROID,MACHINE LEARNING,BLOCKCHAIN"
-            >
-              WEB
-            </div>
-            <div class="skills__skill-texts js-slider-skill-texts">
-              <div
-                class="skills__skill-text skills__skill-text--web js-slider-item"
-              >
-                Web Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        <div class="skills-wrapper">
+          <div class="skills js-skills-slider">
+            <div class="skills__box skills__box">
+              <div class="skills__skill-icons js-skill-icons">
+                <img
+                  class="skills__skill-icon skills__skill-icon--web"
+                  src="images/web.svg"
+                  alt="web"
+                />
+                <img
+                  class="skills__skill-icon skills__skill-icon--android hide"
+                  src="images/android.svg"
+                  alt="web"
+                />
+                <img
+                  class="skills__skill-icon skills__skill-icon--ml hide"
+                  src="images/ml.svg"
+                  alt="web"
+                />
+                <img
+                  class="skills__skill-icon skills__skill-icon--ethereum hide"
+                  src="images/ethereum.svg"
+                  alt="web"
+                />
               </div>
-              <div
-                class="skills__skill-text skills__skill-text--android js-slider-item"
-              >
-                Android Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                sed do eiusmod tempor incididunt ut labore et dolore magna
-                aliqua.
+              <div class="skills__skill-desc">
+                <div class="skills__skill-texts js-skill-texts">
+                  <div class="skills__skill-text">
+                    WEB&nbsp;&nbsp;&nbsp;&nbsp;Lorem ipsum dolor sit amet,
+                    consectetur adipiscing elit, sed do eiusmod tempor
+                    incididunt ut labore et dolore magna aliqua.
+                  </div>
+                  <div class="skills__skill-text hide">
+                    ANDRD&nbsp;&nbsp;&nbsp;&nbsp;Lorem ipsum dolor sit amet,
+                    consectetur adipiscing elit, sed do eiusmod tempor
+                    incididunt ut labore et dolore magna aliqua.
+                  </div>
+                  <div class="skills__skill-text hide">
+                    ML&nbsp;&nbsp;&nbsp;&nbsp;Lorem ipsum dolor sit amet,
+                    consectetur adipiscing elit, sed do eiusmod tempor
+                    incididunt ut labore et dolore magna aliqua.
+                  </div>
+                  <div class="skills__skill-text hide">
+                    ETH&nbsp;&nbsp;&nbsp;&nbsp;Lorem ipsum dolor sit amet,
+                    consectetur adipiscing elit, sed do eiusmod tempor
+                    incididunt ut labore et dolore magna aliqua.
+                  </div>
+                </div>
+                <div
+                  class="skills__skill-title js-skill-title"
+                  data-labels="WEB,ANDROID,ML,ETHEREUM"
+                >
+                  WEB
+                </div>
+                <div
+                  class="skills__skill-index-container js-skill-index-container"
+                >
+                  <div class="skills__skill-index">01</div>
+                </div>
               </div>
-              <div
-                class="skills__skill-text skills__skill-text--ml js-slider-item"
-              >
-                ML Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              </div>
-              <div
-                class="skills__skill-text skills__skill-text--blockchain js-slider-item"
-              >
-                Blockchain Lorem ipsum dolor sit amet, consectetur adipiscing
-                elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-                aliqua.
+              <div class="skills__skill-tools">
+                <div class="skills__skill-tools-label">// Tools</div>
+                <div
+                  class="skills__skill-tools-container skills__skill-tools-container--web js-skill-tools-container"
+                >
+                  <div class="skills__skill-tool-item">vscode</div>
+                  <div class="skills__skill-tool-item">html5 / bem</div>
+                  <div class="skills__skill-tool-item">css3 / sass</div>
+                  <div class="skills__skill-tool-item">javascript / jquery</div>
+                  <div class="skills__skill-tool-item">react</div>
+                  <div class="skills__skill-tool-item">node / express</div>
+                  <div class="skills__skill-tool-item">mongodb / sql</div>
+                  <div class="skills__skill-tool-item">webpack / gulp</div>
+                  <div class="skills__skill-tool-item">& more</div>
+                </div>
+                <div
+                  class="skills__skill-tools-container skills__skill-tools-container--android js-skill-tools-container hide"
+                >
+                  <div class="skills__skill-tool-item">android studio</div>
+                  <div class="skills__skill-tool-item">jetpack components</div>
+                  <div class="skills__skill-tool-item">kotlin</div>
+                  <div class="skills__skill-tool-item">java</div>
+                  <div class="skills__skill-tool-item">material design</div>
+                  <div class="skills__skill-tool-item">mvvm</div>
+                  <div class="skills__skill-tool-item">firebase</div>
+                </div>
+                <div
+                  class="skills__skill-tools-container skills__skill-tools-container--ml js-skill-tools-container hide"
+                >
+                  <div class="skills__skill-tool-item">anaconda / python3</div>
+                  <div class="skills__skill-tool-item">jupyter notebooks</div>
+                  <div class="skills__skill-tool-item">numpy</div>
+                  <div class="skills__skill-tool-item">tensorflow</div>
+                  <div class="skills__skill-tool-item">pytorch</div>
+                  <div class="skills__skill-tool-item">openvino</div>
+                </div>
+                <div
+                  class="skills__skill-tools-container skills__skill-tools-container--ethereum js-skill-tools-container hide"
+                >
+                  <div class="skills__skill-tool-item">remix ide</div>
+                  <div class="skills__skill-tool-item">solidity</div>
+                  <div class="skills__skill-tool-item">infura</div>
+                  <div class="skills__skill-tool-item">truffle</div>
+                  <div class="skills__skill-tool-item">ipfs</div>
+                </div>
               </div>
             </div>
           </div>
-          <div class="skills__tools">
-            <div class="skills__tools-label">TOOLS</div>
-            <div class="skills__tools-containers js-slider-skill-tools">
-              <div
-                class="skills__tools-container skills__tools-container--web js-slider-item"
-              >
-                <div class="skills__tools-row">
-                  <img
-                    class="skills__tool-item"
-                    src="images/html5.svg"
-                    alt="HTML5"
-                  />
-                  <img
-                    class="skills__tool-item"
-                    src="images/css3.svg"
-                    alt="CSS3"
-                  />
-                  <img
-                    class="skills__tool-item"
-                    src="images/javascript.svg"
-                    alt="JavaScript"
-                  />
-                </div>
-                <div class="skills__tools-row">
-                  <img
-                    class="skills__tool-item"
-                    src="images/sass.svg"
-                    alt="Sass"
-                  />
-                  <img
-                    class="skills__tool-item"
-                    src="images/react.svg"
-                    alt="React"
-                  />
-                  <img
-                    class="skills__tool-item"
-                    src="images/bem.svg"
-                    alt="BEM"
-                  />
-                </div>
-                <div class="skills__tools-row">
-                  <img
-                    class="skills__tool-item"
-                    src="images/jquery.svg"
-                    alt="jQuery"
-                  />
-                  <img
-                    class="skills__tool-item"
-                    src="images/nodejs.svg"
-                    alt="nodejs"
-                  />
-                  <img
-                    class="skills__tool-item"
-                    src="images/mongodb.svg"
-                    alt="MongoDB"
-                  />
-                </div>
 
-                <div class="skills__tools-row">
-                  <img
-                    class="skills__tool-item"
-                    src="images/vscode.svg"
-                    alt="VSCode"
-                  />
-                  <img
-                    class="skills__tool-item"
-                    src="images/gulp.svg"
-                    alt="Gulp"
-                  />
-                  <img
-                    class="skills__tool-item"
-                    src="images/webpack.svg"
-                    alt="Webpack"
-                  />
+          <div class="skill-nav js-slider-navbar" data-total="4">
+            <img
+              src="images/arrow-left.svg"
+              alt="previous"
+              class="skill-nav__btn skill-nav__btn--prev js-btn-prev"
+            />
+            <div class="skill-nav__bar js-nav-bar">
+              <div class="skill-nav__track js-nav-track"></div>
+              <div class="skill-nav__track-checkpoints js-nav-checkpoints">
+                <div class="skill-nav__track-checkpoint" data-checkpoint="0">
+                  /
+                </div>
+                <div class="skill-nav__track-checkpoint" data-checkpoint="1">
+                  /
+                </div>
+                <div class="skill-nav__track-checkpoint" data-checkpoint="2">
+                  /
+                </div>
+                <div class="skill-nav__track-checkpoint" data-checkpoint="3">
+                  /
                 </div>
               </div>
-              <div
-                class="skills__tools-container skills__tools-container--android js-slider-item"
-              >
-                <div class="skills__tools-row">
-                  <img
-                    class="skills__tool-item"
-                    src="images/material-design.svg"
-                    alt="Material Design"
-                  />
-                  <img
-                    class="skills__tool-item"
-                    src="images/firebase.svg"
-                    alt="Firebase"
-                  />
-                </div>
-                <div class="skills__tools-row">
-                  <img
-                    class="skills__tool-item"
-                    src="images/java.svg"
-                    alt="Java"
-                  />
-                  <img
-                    class="skills__tool-item"
-                    src="images/kotlin.svg"
-                    alt="Kotlin"
-                  />
-                </div>
-                <div class="skills__tools-row">
-                  <img
-                    class="skills__tool-item"
-                    src="images/android-studio.svg"
-                    alt="Android Studio"
-                  />
-                </div>
-              </div>
-              <div
-                class="skills__tools-container skills__tools-container--ml js-slider-item"
-              >
-                <div class="skills__tools-row">
-                  <img
-                    class="skills__tool-item"
-                    src="images/numpy.svg"
-                    alt="Numpy"
-                  />
-                </div>
-                <div class="skills__tools-row">
-                  <img
-                    class="skills__tool-item"
-                    src="images/tensorflow.svg"
-                    alt="TensorFlow"
-                  />
-                  <img
-                    class="skills__tool-item"
-                    src="images/pytorch.svg"
-                    alt="PyTorch"
-                  />
-                </div>
-                <div class="skills__tools-row">
-                  <img
-                    class="skills__tool-item"
-                    src="images/python.svg"
-                    alt="Python"
-                  />
-                  <img
-                    class="skills__tool-item"
-                    src="images/jupyter.svg"
-                    alt="Jupyter"
-                  />
-                </div>
-              </div>
-              <div
-                class="skills__tools-container skills__tools-container--blockchain js-slider-item"
-              >
-                <div class="skills__tools-row">
-                  <img
-                    class="skills__tool-item"
-                    src="images/web3.svg"
-                    alt="web3"
-                  />
-                  <img
-                    class="skills__tool-item"
-                    src="images/truffle.svg"
-                    alt="Truffle"
-                  />
-                </div>
-                <div class="skills__tools-row">
-                  <img
-                    class="skills__tool-item"
-                    src="images/solidity.svg"
-                    alt="Solidity"
-                  />
-                  <img
-                    class="skills__tool-item"
-                    src="images/ipfs.svg"
-                    alt="IPFS"
-                  />
-                </div>
-                <div class="skills__tools-row">
-                  <img
-                    class="skills__tool-item"
-                    src="images/ethereum.svg"
-                    alt="Ethereum"
-                  />
-                  <img
-                    class="skills__tool-item"
-                    src="images/remix.svg"
-                    alt="Remix"
-                  />
-                </div>
-              </div>
+              <span class="skill-nav__index js-nav-index">
+                <span class="skill-nav__index-current js-current-index"
+                  >01</span
+                >
+                <span class="skill-nav__index-divider">/</span>
+                <span class="skill-nav__index-total">04</span>
+              </span>
             </div>
+            <img
+              src="images/arrow-right.svg"
+              alt="next"
+              class="skill-nav__btn skill-nav__btn--next js-btn-next"
+            />
           </div>
-          <div class="skills__nav-btn-container js-slider-controls">
-            <span class="skills__nav-btn active"></span>
-            <span class="skills__nav-btn"></span>
-            <span class="skills__nav-btn"></span>
-            <span class="skills__nav-btn"></span>
-          </div>
-        </div> -->
+        </div>
       </section>
 
       <section
