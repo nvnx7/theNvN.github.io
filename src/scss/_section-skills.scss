@@ -112,180 +112,248 @@
   }
 }
 
-.skills {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: stretch;
+.skills-wrapper {
+  height: 100%;
   position: relative;
-  flex-grow: 1;
 
   @include mx.screen-m {
     margin-left: 76px;
   }
+}
 
-  &__skill-description {
-    min-width: 60%;
-    position: relative;
-    // width: 100%;
-    // position: absolute;
-    // top: 0;
-    // left: 0;
-    // bottom: 40%;
-    // padding-left: 16px;
-    // flex-grow: 1;
-    overflow: hidden;
+.skills {
+  position: relative;
+  width: 100%;
+  height: 90%;
+  overflow: hidden;
+
+  &__box {
+    display: flex;
+    justify-content: space-between;
+    height: 100%;
   }
 
-  &__skill-names {
-    min-height: 36px;
-    font-size: v.$font-size-l;
-    width: fit-content;
+  &__skill-desc {
     position: relative;
-    padding-left: 16px;
-    // mix-blend-mode: difference;
-    color: v.$color-primary;
-    z-index: 10;
+    width: 50%;
+    max-width: 496px;
+    height: 500px;
+    margin-top: 32px;
+    margin-left: 32px;
+    align-self: flex-start;
+  }
 
-    @include mx.screen-s {
-      min-height: 42px;
-    }
-
-    @include mx.screen-m {
-      min-height: 48px;
-    }
+  &__skill-title {
+    position: absolute;
+    left: 0;
+    top: 16px;
+    font-size: v.$font-size-l;
   }
 
   &__skill-texts {
-    width: 100%;
     position: absolute;
-    left: 0;
+    background-color: v.$color-primary;
+    color: v.$color-tertiary;
+    left: 10%;
+    right: 16px;
+    top: 0;
     bottom: 0;
-    top: 32px;
-    // margin-top: 8px;
-    // border-left: solid 2px v.$color-primary;
-    overflow: hidden;
-    background-color: v.$color-secondary;
+    padding-top: 84px;
+    padding-left: 4px;
+    padding: 84px 4px 4px 4px;
   }
 
   &__skill-text {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 32px;
-    padding-left: 8px;
-    // padding-right: 4px;
-    transform: translateX(100%);
-    color: v.$color-tertiary;
-
-    &--web {
-      transform: translateX(0);
+    &.hide {
+      display: none;
     }
   }
 
-  &__tools {
-    min-width: 40%;
-    // clip-path: polygon(0 40%, 100% 0, 100% 100%, 0 100%);
-  }
-
-  &__tools-label {
+  &__skill-index-container {
     position: absolute;
-    bottom: 0;
-    right: 0;
-    margin-bottom: 8px;
-    margin-right: 16px;
-    font-size: v.$font-size-s;
-    // color: v.$color-tertiary;
-  }
-
-  &__tools-containers {
-    width: 100%;
-    height: 100%;
-    position: relative;
+    width: 35%;
+    left: 75%;
+    bottom: 24px;
     overflow: hidden;
-  }
-
-  &__tools-container {
-    display: flex;
-    justify-content: space-around;
-    align-items: flex-end;
-    position: absolute;
-    width: 100%;
-    top: 0;
-    left: 0;
-    bottom: 32px;
-    transform: translateX(100%);
-
-    &--web {
-      transform: translateX(0);
-    }
-  }
-
-  &__tools-row {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    width: 64px;
-    height: 64%;
-    // border: solid 1px red;
-
-    @for $i from 0 through 3 {
-      &:nth-child(#{$i + 1}) {
-        transform: translateY(-$i * 12%);
-      }
-    }
-  }
-
-  &__tool-item {
-    max-width: 36px;
-    max-height: 36px;
-    float: right;
-
-    @include mx.screen-s {
-      max-width: 42px;
-      max-height: 42px;
-    }
-
-    @include mx.screen-m {
-      max-width: 48px;
-      max-height: 48px;
-    }
-  }
-
-  &__nav-btn-container {
-    width: fit-content;
-    position: absolute;
-    bottom: 8px;
-    margin-left: auto;
-    margin-right: auto;
-    left: 0;
-    right: 0;
-    background: transparent;
-  }
-
-  &__nav-btn {
-    position: relative;
-    width: 28px;
-    height: 28px;
-    float: left;
-    margin: 4px;
-    cursor: pointer;
 
     &::after {
       content: "";
       position: absolute;
-      width: 100%;
-      height: 4px;
+      width: 80%;
+      height: 2px;
       top: 0;
       bottom: 0;
-      margin: auto;
       left: 0;
-      border: solid 0.5px v.$color-primary;
+      margin-top: auto;
+      margin-bottom: auto;
+      background-color: v.$color-secondary;
+    }
+  }
+
+  &__skill-index {
+    width: 15%;
+    float: right;
+    text-align: end;
+  }
+
+  &__skill-tools {
+    width: fit-content;
+    max-width: 45%;
+    height: 500px;
+    align-self: flex-end;
+    margin-bottom: 28px;
+    margin-right: 36px;
+  }
+
+  &__skill-tools-label {
+    text-align: end;
+  }
+
+  &__skill-tools-container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 16px;
+    align-items: flex-end;
+  }
+
+  &__skill-tool-item {
+    font-size: v.$font-size-m;
+    text-align: end;
+    text-transform: uppercase;
+  }
+
+  &__skill-icons {
+    position: absolute;
+    width: 90vh;
+    height: 100%;
+    max-width: 636px;
+    top: 0;
+    bottom: 0;
+    right: -72px;
+  }
+
+  &__skill-icon {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin-top: auto;
+    margin-bottom: auto;
+    width: 100%;
+    transform: rotate(-90deg);
+    opacity: 0.05;
+
+    &--web {
+      right: -32px;
     }
 
-    &.active::after {
-      background-color: v.$color-primary;
+    &--android {
+      right: -56px;
     }
+
+    &--ml {
+      right: -196px;
+    }
+
+    &--ethereum {
+      width: 70%;
+      transform: none;
+      right: 0;
+    }
+  }
+}
+
+.skill-nav {
+  width: 95%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  float: right;
+
+  &__btn {
+    width: 36px;
+    padding: 4px;
+    cursor: pointer;
+    transition: all 0.2s ease-out;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+
+  &__bar {
+    position: relative;
+    width: 75%;
+    height: 64px;
+  }
+
+  &__track {
+    position: absolute;
+    height: 1px;
+    background-color: v.$color-secondary;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+  }
+
+  &__track-checkpoints {
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+  }
+
+  &__track-checkpoint {
+    font-size: 0.8em;
+    background-color: v.$color-tertiary;
+    cursor: pointer;
+
+    &:hover {
+      color: v.$color-primary;
+    }
+  }
+
+  &__index {
+    position: absolute;
+    width: 64px;
+    height: 100%;
+    background-color: v.$color-tertiary;
+    left: 0;
+    z-index: 10;
+    font-size: 1.4em;
+    padding: 0 32px;
+    overflow: hidden;
+  }
+
+  &__index-current {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-top: 4px;
+  }
+
+  &__index-divider {
+    position: absolute;
+    height: fit-content;
+    left: 0;
+    right: 0;
+    margin: auto;
+    text-align: center;
+    top: 0;
+    bottom: 0;
+  }
+
+  &__index-total {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    margin-bottom: 4px;
   }
 }
