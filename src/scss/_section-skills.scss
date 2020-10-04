@@ -11,15 +11,14 @@
 
 .text-appear {
   &--text-skills {
-    max-width: 796px;
-    font-size: v.$font-size-m;
-    margin-top: 8px;
-    margin-left: 16px;
-    // border: solid 1px red;
+    font-size: v.$font-size-l;
+    font-family: v.$font-rz-bold;
+    margin-left: 32px;
+    max-width: 364px;
+    margin-top: 64px;
     transition: opacity 0.4s ease-out, color 0.5s;
 
     &.transparent {
-      // color: rgba(245, 245, 245, 0.2);
       opacity: 0.05;
     }
 
@@ -28,12 +27,19 @@
     }
 
     @include mx.screen-s {
-      font-size: v.$font-size-m;
+      max-width: 496px;
+      font-size: v.$font-size-xl;
     }
 
     @include mx.screen-m {
+      max-width: 512px;
       font-size: v.$font-size-xl;
-      margin-left: 124px;
+      margin-left: 126px;
+    }
+
+    @include mx.screen-l {
+      max-width: 710px;
+      font-size: v.$font-size-xxl;
     }
 
     .skill-name {
@@ -61,6 +67,7 @@
     position: absolute;
     left: 0;
     top: 45%;
+    font-family: v.$font-rz-bold;
     font-size: v.$font-size-l;
     overflow: visible;
     white-space: nowrap;
@@ -79,6 +86,7 @@
   }
 
   &__title {
+    font-family: v.$font-rz-bold;
     font-size: v.$font-size-l;
     padding: 8px;
   }
@@ -95,6 +103,7 @@
 
     &--web {
       right: -45%;
+      mix-blend-mode: soft-light;
     }
 
     &--android {
@@ -103,6 +112,7 @@
 
     &--ml {
       right: -35%;
+      mix-blend-mode: soft-light;
     }
 
     &--ethereum {
@@ -121,33 +131,97 @@
   }
 }
 
+.back-btn {
+  width: 42px;
+  height: 42px;
+  position: absolute;
+  right: 8px;
+  top: 8px;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.2s ease-out;
+
+  &:hover {
+    transform: scale(1.2);
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 35%;
+    height: 35%;
+    border-left: solid 1px black;
+    border-top: solid 1px black;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 35%;
+    height: 35%;
+    border-right: solid 1px black;
+    border-bottom: solid 1px black;
+  }
+
+  @include mx.screen-m {
+    width: 56px;
+    height: 56px;
+    top: 32px;
+    right: 16px;
+  }
+}
+
 .skills {
   position: relative;
   width: 100%;
-  height: 90%;
+  height: 88%;
   overflow: hidden;
 
   &__box {
     display: flex;
     justify-content: space-between;
     height: 100%;
+
+    @include mx.screen-l {
+      justify-content: space-between;
+    }
   }
 
   &__skill-desc {
     position: relative;
-    width: 50%;
+    width: 55%;
     max-width: 496px;
-    height: 500px;
+    min-width: 396px;
+    height: 400px;
     margin-top: 32px;
-    margin-left: 32px;
+    margin-left: 8px;
     align-self: flex-start;
+
+    @include mx.screen-m {
+      height: 426px;
+      margin-left: 0;
+    }
+
+    @include mx.screen-l {
+      width: 50%;
+      height: 500px;
+    }
   }
 
   &__skill-title {
     position: absolute;
     left: 0;
     top: 16px;
-    font-size: v.$font-size-l;
+    font-family: v.$font-rz-bold;
+    font-size: v.$font-size-xl;
+
+    @include mx.screen-l {
+      font-size: v.$font-size-xxl;
+    }
   }
 
   &__skill-texts {
@@ -158,9 +232,18 @@
     right: 16px;
     top: 0;
     bottom: 0;
-    padding-top: 84px;
-    padding-left: 4px;
     padding: 84px 4px 4px 4px;
+
+    // &::before {
+    //   content: "";
+    //   position: absolute;
+    //   box-sizing: border-box;
+    //   width: 100%;
+    //   height: 100%;
+    //   top: 4px;
+    //   left: 4px;
+    //   border: solid 4px v.$color-primary;
+    // }
   }
 
   &__skill-text {
@@ -170,11 +253,17 @@
   }
 
   &__skill-index-container {
+    display: none;
     position: absolute;
     width: 35%;
     left: 75%;
     bottom: 24px;
+    font-family: v.$font-rz-bold;
     overflow: hidden;
+
+    @include mx.screen-m {
+      display: initial;
+    }
 
     &::after {
       content: "";
@@ -197,27 +286,47 @@
   }
 
   &__skill-tools {
+    position: absolute;
     width: fit-content;
     max-width: 45%;
-    height: 500px;
-    align-self: flex-end;
-    margin-bottom: 28px;
-    margin-right: 36px;
+    top: 55%;
+    right: 8px;
+    margin-right: 4px;
+
+    @include mx.screen-m {
+      position: relative;
+      align-self: flex-end;
+      margin-right: 12px;
+      top: unset;
+      margin-bottom: 64px;
+    }
   }
 
   &__skill-tools-label {
+    font-weight: bold;
     text-align: end;
+    font-size: smaller;
   }
 
   &__skill-tools-container {
     display: flex;
     flex-direction: column;
-    margin-top: 16px;
+    margin-top: 4px;
     align-items: flex-end;
+    font-family: v.$font-rz-bold;
+    font-size: v.$font-size-s;
+
+    @include mx.screen-m {
+      margin-top: 8px;
+      font-size: v.$font-size-m;
+    }
+
+    @include mx.screen-l {
+      font-size: v.$font-size-l;
+    }
   }
 
   &__skill-tool-item {
-    font-size: v.$font-size-m;
     text-align: end;
     text-transform: uppercase;
   }
@@ -238,9 +347,13 @@
     bottom: 0;
     margin-top: auto;
     margin-bottom: auto;
-    width: 100%;
+    width: 90%;
     transform: rotate(-90deg);
     opacity: 0.05;
+
+    @include mx.screen-m {
+      width: 95%;
+    }
 
     &--web {
       right: -32px;
@@ -263,11 +376,16 @@
 }
 
 .skill-nav {
-  width: 95%;
+  width: 90%;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
   float: right;
+  margin-right: 8px;
+
+  @include mx.screen-l {
+    justify-content: space-evenly;
+  }
 
   &__btn {
     width: 36px;
@@ -282,8 +400,13 @@
 
   &__bar {
     position: relative;
-    width: 75%;
-    height: 64px;
+    width: 70%;
+    height: 42px;
+
+    @include mx.screen-m {
+      width: 75%;
+      height: 64px;
+    }
   }
 
   &__track {
@@ -299,7 +422,7 @@
 
   &__track-checkpoints {
     position: absolute;
-    display: flex;
+    display: none;
     justify-content: space-between;
     align-items: center;
     height: 100%;
@@ -308,6 +431,10 @@
     top: 0;
     bottom: 0;
     margin: auto;
+
+    @include mx.screen-s {
+      display: flex;
+    }
   }
 
   &__track-checkpoint {
@@ -322,14 +449,21 @@
 
   &__index {
     position: absolute;
-    width: 64px;
+    width: 42px;
     height: 100%;
     background-color: v.$color-tertiary;
     left: 0;
     z-index: 10;
-    font-size: 1.4em;
-    padding: 0 32px;
+    font-size: v.$font-size-s;
+    padding: 0 24px;
+    font-family: v.$font-rz-bold;
     overflow: hidden;
+
+    @include mx.screen-m {
+      width: 64px;
+      padding: 0 32px;
+      font-size: v.$font-size-m;
+    }
   }
 
   &__index-current {
