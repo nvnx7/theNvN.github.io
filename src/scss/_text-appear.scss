@@ -3,8 +3,7 @@
 .text-appear {
   width: fit-content;
   position: relative;
-  // overflow: hidden;
-  //   border: solid red 1px;
+  font-family: v.$font-rz-bold;
 
   &__text {
     width: fit-content;

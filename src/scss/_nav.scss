@@ -81,12 +81,12 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  font-family: v.$font-rz-bold;
   z-index: 50;
 
   &__link {
     text-decoration: none;
-    color: black;
-    font-weight: bold;
+    color: v.$color-secondary;
   }
 
   &__link-label {
@@ -136,7 +136,6 @@
 
     & #{$this}__link-label {
       overflow: hidden;
-      font-weight: bold;
       margin-left: 4px;
     }
 

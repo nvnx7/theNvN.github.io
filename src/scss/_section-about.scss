@@ -14,15 +14,15 @@
 .text-appear {
   &--text-about {
     max-width: 640px;
-    font-size: v.$font-size-m;
+    font-size: v.$font-size-l;
     margin-top: 48px;
 
     @include mx.screen-s {
-      font-size: v.$font-size-l;
+      font-size: v.$font-size-xl;
     }
 
     @include mx.screen-m {
-      font-size: v.$font-size-xl;
+      font-size: v.$font-size-xxl;
       margin-left: 96px;
     }
   }
@@ -34,7 +34,6 @@
 
 .text-about-para {
   max-width: 612px;
-  font-family: v.$font-open-sans;
   font-weight: 400;
   margin-top: 24px;
 
