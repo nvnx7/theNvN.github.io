@@ -280,67 +280,9 @@
         id="section-skills"
         class="full-page__section full-page__section--skills js-full-page-section"
       >
-        <div class="skill-previews js-skill-previews">
-          <div
-            class="skill-preview skill-preview--web js-skill-preview-web hide"
-          >
-            <div class="skill-preview__prompt js-show-skill-web">show me</div>
-            <div class="skill-preview__box">
-              <div class="skill-preview__title">Web</div>
-              <img
-                class="skill-preview__icon skill-preview__icon--web"
-                src="images/web.svg"
-                alt="web"
-              />
-            </div>
-          </div>
+        <div class="text-hover-prompt js-text-hover-prompt hide">show me</div>
 
-          <div
-            class="skill-preview skill-preview--android js-skill-preview-android hide"
-          >
-            <div class="skill-preview__prompt js-show-skill-android">
-              show me
-            </div>
-            <div class="skill-preview__box">
-              <div class="skill-preview__title">Android</div>
-              <img
-                class="skill-preview__icon skill-preview__icon--android"
-                src="images/android.svg"
-                alt="android"
-              />
-            </div>
-          </div>
-
-          <div class="skill-preview skill-preview--ml js-skill-preview-ml hide">
-            <div class="skill-preview__prompt js-show-skill-ml">show me</div>
-            <div class="skill-preview__box">
-              <div class="skill-preview__title">ML</div>
-              <img
-                class="skill-preview__icon skill-preview__icon--ml"
-                src="images/ml.svg"
-                alt="ml"
-              />
-            </div>
-          </div>
-
-          <div
-            class="skill-preview skill-preview--ethereum js-skill-preview-ethereum hide"
-          >
-            <div class="skill-preview__prompt js-show-skill-ethereum">
-              show me
-            </div>
-            <div class="skill-preview__box">
-              <div class="skill-preview__title">Ethereum</div>
-              <img
-                class="skill-preview__icon skill-preview__icon--ethereum"
-                src="images/ethereum.svg"
-                alt="ethereum"
-              />
-            </div>
-          </div>
-        </div>
-
-        <div class="text-appear text-appear--text-skills js-text-skills hide">
+        <div class="text-appear text-appear--text-skills js-text-skills">
           <div class="text-appear__line-top js-line-top"></div>
           <span class="text-appear__text js-text"
             >I can do a thing or two. That includes building on</span
@@ -372,7 +314,20 @@
           <div class="text-appear__line-bottom js-line-bottom"></div>
         </div>
 
-        <div class="skills-wrapper js-skills-wrapper">
+        <div class="skills-wrapper js-skills-wrapper invisible">
+          <div class="cursor js-cursor">
+            <img
+              class="cursor__arrow cursor__arrow--left"
+              src="images/arrow-left-2.svg"
+              alt="arrow left"
+            />
+            <img
+              class="cursor__arrow cursor__arrow--right"
+              src="images/arrow-right-2.svg"
+              alt="arrow right"
+            />
+            <div class="cursor__progress-bar js-cursor-progress hide"></div>
+          </div>
           <div class="skills js-skills-slider">
             <div class="back-btn js-skills-back-btn">
               <img src="images/close.svg" alt="close button" />
@@ -402,7 +357,7 @@
               </div>
               <div class="skills__skill-desc js-skill-desc">
                 <div class="skills__skill-texts js-skill-texts">
-                  <div class="skills__skill-text">
+                  <div class="skills__skill-text hide">
                     WEB&nbsp;&nbsp;&nbsp;&nbsp;Lorem ipsum dolor sit amet,
                     consectetur adipiscing elit, sed do eiusmod tempor
                     incididunt ut labore et dolore magna aliqua.
@@ -438,7 +393,7 @@
               <div class="skills__skill-tools">
                 <div class="skills__skill-tools-label">// Tools</div>
                 <div
-                  class="skills__skill-tools-container skills__skill-tools-container--web js-skill-tools-container"
+                  class="skills__skill-tools-container skills__skill-tools-container--web js-skill-tools-container hide"
                 >
                   <div class="skills__skill-tool-item">vscode</div>
                   <div class="skills__skill-tool-item">html5 / bem</div>
@@ -525,8 +480,146 @@
 
       <section
         id="section-projects"
-        class="full-page__section js-full-page-section"
-      ></section>
+        class="full-page__section full-page__section--projects js-full-page-section"
+      >
+        <!-- <div class="text-appear text-appear--text-projects js-text-projects">
+          <div class="text-appear__line-top js-line-top"></div>
+          <div class="text-appear__text js-text">
+            A few things that I built...
+          </div>
+          <div class="text-appear__line-bottom js-line-bottom"></div>
+        </div> -->
+        <!-- 
+        <div class="project-titles">
+          <div class="project-titles__title">Artista</div>
+          <div class="project-titles__title">SnapBot</div>
+          <div class="project-titles__title">GazePointerController</div>
+          <div class="project-titles__title">PeopleCounter</div>
+          <div class="project-titles__title">MyPage</div>
+          <div class="project-titles__title">Philosofy</div>
+          <div class="project-titles__title">EventManagement dApp</div>
+        </div> -->
+
+        <div class="projects js-projects">
+          <div class="project">
+            <div class="project__title">SnapBot</div>
+
+            <div class="project__desc">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit
+            </div>
+            <div class="project__icon"></div>
+            <div class="project__tools">
+              <div class="project__tools-label">// Built with</div>
+              <div class="project__tools-list">Node.js / Heroku</div>
+            </div>
+            <div class="project__links">
+              <div class="project__links-label">// Links</div>
+              <div class="project__links-list">Github / Twitter</div>
+            </div>
+          </div>
+
+          <div class="project">
+            <div class="project__title">SnapBot</div>
+            <div class="project__details">
+              <div class="project__desc">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit
+              </div>
+              <div class="project__icon"></div>
+              <div class="project__tools">
+                <div class="project__tools-label">// Built with</div>
+                <div class="project__tools-list">Node.js / Heroku</div>
+              </div>
+              <div class="project__links">
+                <div class="project__links-label">// Links</div>
+                <div class="project__links-list">Github / Twitter</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="project">
+            <div class="project__title">SnapBot</div>
+            <div class="project__details">
+              <div class="project__desc">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit
+              </div>
+              <div class="project__icon"></div>
+              <div class="project__tools">
+                <div class="project__tools-label">// Built with</div>
+                <div class="project__tools-list">Node.js / Heroku</div>
+              </div>
+              <div class="project__links">
+                <div class="project__links-label">// Links</div>
+                <div class="project__links-list">Github / Twitter</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="project">
+            <div class="project__title">SnapBot</div>
+            <div class="project__details">
+              <div class="project__desc">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit
+              </div>
+              <div class="project__icon"></div>
+              <div class="project__tools">
+                <div class="project__tools-label">// Built with</div>
+                <div class="project__tools-list">Node.js / Heroku</div>
+              </div>
+              <div class="project__links">
+                <div class="project__links-label">// Links</div>
+                <div class="project__links-list">Github / Twitter</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="project">
+            <div class="project__title">SnapBot</div>
+            <div class="project__details">
+              <div class="project__desc">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit
+              </div>
+              <div class="project__icon"></div>
+              <div class="project__tools">
+                <div class="project__tools-label">// Built with</div>
+                <div class="project__tools-list">Node.js / Heroku</div>
+              </div>
+              <div class="project__links">
+                <div class="project__links-label">// Links</div>
+                <div class="project__links-list">Github / Twitter</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="project">
+            <div class="project__title">SnapBot</div>
+            <div class="project__details">
+              <div class="project__desc">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit
+              </div>
+              <div class="project__icon"></div>
+              <div class="project__tools">
+                <div class="project__tools-label">// Built with</div>
+                <div class="project__tools-list">Node.js / Heroku</div>
+              </div>
+              <div class="project__links">
+                <div class="project__links-label">// Links</div>
+                <div class="project__links-list">Github / Twitter</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="scroll-progress">
+          <input
+            class="scroll-progress__bar js-scroll-progress-bar"
+            type="range"
+            min="0"
+            max="100"
+            value="0"
+          />
+        </div>
+      </section>
+
       <section
         id="section-connect"
         class="full-page__section js-full-page-section"
