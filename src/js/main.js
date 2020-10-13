@@ -63,6 +63,8 @@ let cx = 0;
 let cy = 0;
 let dxMax = 0;
 let dyMax = 0;
+let usingTouch = false;
+
 const mouseMoveHandler = (e) => {
   const dx = e.clientX - cx;
   const dy = e.clientY - cy;
@@ -72,7 +74,15 @@ const mouseMoveHandler = (e) => {
 };
 
 // Events on the skills text
+document.querySelector(".js-text-skills").addEventListener("touchstart", () => {
+  // For touch devices set to true before firing mouseover event
+  usingTouch = true;
+});
+
 document.querySelector(".js-text-skills").addEventListener("mouseover", (e) => {
+  // Don't do anything if touch input is used
+  if (usingTouch) return;
+  usingTouch = false;
   const classList = e.target.parentElement.parentElement.classList;
   let idx = 0;
   if (classList.contains("js-skill-name-web")) {
@@ -110,6 +120,7 @@ document.querySelector(".js-text-skills").addEventListener("mouseover", (e) => {
 });
 
 document.querySelector(".js-text-skills").addEventListener("mouseout", (e) => {
+  console.log("mouseout");
   if (
     e.target.parentElement.parentElement.className.indexOf("js-skill-name") < 0
   )
@@ -147,6 +158,7 @@ document.querySelector(".js-text-skills").addEventListener("click", (e) => {
       document
         .querySelector(".js-skills-wrapper")
         .classList.remove("invisible");
+      document.querySelector(".js-skills-wrapper").classList.remove("preview");
       sliderNav.animateIn(idx);
     },
   });
