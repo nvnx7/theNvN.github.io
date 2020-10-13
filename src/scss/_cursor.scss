@@ -1,0 +1,71 @@
+@use "variables" as v;
+
+.cursor {
+  position: fixed;
+  width: 1px;
+  height: 1px;
+  top: 32px;
+  left: 164px;
+  overflow: visible;
+  background-color: black;
+  cursor: grab;
+
+  &.grabbing {
+    cursor: grabbing;
+  }
+
+  &__arrow {
+    position: absolute;
+    width: 11px;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+
+    &--left {
+      left: -32px;
+      animation: arrow-anim-left 0.5s ease-in 0s infinite alternate;
+    }
+
+    &--right {
+      right: -32px;
+      animation: arrow-anim-right 0.5s ease-in 0s infinite alternate;
+    }
+  }
+
+  &__progress-bar {
+    position: absolute;
+    width: 1px;
+    height: 4px;
+    bottom: -24px;
+    left: -28px;
+    background-color: v.$color-primary;
+
+    &::before {
+      content: "";
+      position: absolute;
+      width: 60px;
+      height: 2px;
+      left: 0;
+      top: 0;
+      border: solid 1px black;
+    }
+  }
+}
+
+@keyframes arrow-anim-left {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-6px);
+  }
+}
+
+@keyframes arrow-anim-right {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(6px);
+  }
+}
