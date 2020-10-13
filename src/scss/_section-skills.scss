@@ -3,9 +3,32 @@
 
 .full-page__section--skills {
   position: relative;
+  overflow: hidden;
 
   @include mx.screen-m {
     padding-left: v.$nav-offset;
+  }
+}
+
+.text-hover-prompt {
+  position: fixed;
+  width: fit-content;
+  font-size: v.$font-size-l;
+  font-family: v.$font-rz-bold;
+  background-color: v.$color-primary;
+  color: v.$color-tertiary;
+  z-index: 10;
+
+  @include mx.screen-s {
+    font-size: v.$font-size-xl;
+  }
+
+  @include mx.screen-m {
+    font-size: v.$font-size-xl;
+  }
+
+  @include mx.screen-l {
+    font-size: v.$font-size-xxl;
   }
 }
 
@@ -16,10 +39,11 @@
     margin-left: 32px;
     max-width: 364px;
     margin-top: 64px;
+    z-index: 20;
     transition: opacity 0.4s ease-out, color 0.5s;
 
     &.transparent {
-      opacity: 0.05;
+      opacity: 0.1;
     }
 
     &.hide {
@@ -53,78 +77,22 @@
   }
 }
 
-.skill-preview {
-  width: 450px;
-  height: 430px;
-  position: fixed;
-  color: v.$color-tertiary;
-
-  &.hide {
-    display: none;
-  }
-
-  &__prompt {
-    position: absolute;
-    left: 0;
-    top: 45%;
-    font-family: v.$font-rz-bold;
-    font-size: v.$font-size-l;
-    overflow: visible;
-    white-space: nowrap;
-    z-index: 12;
-    background-color: v.$color-primary;
-  }
-
-  &__box {
-    position: absolute;
-    background-color: v.$color-secondary;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    left: 96px;
-    overflow: hidden;
-  }
-
-  &__title {
-    font-family: v.$font-rz-bold;
-    font-size: v.$font-size-l;
-    padding: 8px;
-  }
-
-  &__icon {
-    position: absolute;
-    transform: rotate(-90deg);
-    height: 300px;
-    opacity: 0.2;
-    top: 0;
-    bottom: 0;
-    margin-top: auto;
-    margin-bottom: auto;
-
-    &--web {
-      right: -45%;
-      mix-blend-mode: soft-light;
-    }
-
-    &--android {
-      right: -36%;
-    }
-
-    &--ml {
-      right: -35%;
-      mix-blend-mode: soft-light;
-    }
-
-    &--ethereum {
-      right: -10%;
-      transform: none;
-    }
-  }
-}
-
 .skills-wrapper {
   height: 100%;
   position: relative;
+
+  &.preview {
+    position: absolute;
+    top: 32px;
+    left: 126px;
+    right: 0;
+    bottom: 0;
+    opacity: 0.6;
+    visibility: visible;
+    mix-blend-mode: overlay;
+    transform: scale(1.12);
+    transition: opacity 0.5s ease-out;
+  }
 
   @include mx.screen-m {
     margin-left: 76px;
@@ -180,6 +148,11 @@
   width: 100%;
   height: 88%;
   overflow: hidden;
+  cursor: grab;
+
+  &.grabbing {
+    cursor: grabbing;
+  }
 
   &__box {
     display: flex;
