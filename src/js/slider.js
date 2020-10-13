@@ -4,6 +4,7 @@ import { ScrambleText, ScrambleTexts } from "./scrambleText";
 class Slider {
   constructor(query) {
     this.elem = document.querySelector(query);
+    this.titles = this.elem.querySelector(".js-skill-title");
     this.titlesAnim = new ScrambleTexts(".js-skill-title");
     this.texts = this.elem.querySelector(".js-skill-texts");
     this.icons = this.elem.querySelector(".js-skill-icons");
@@ -14,7 +15,6 @@ class Slider {
   }
 
   moveTo(idx) {
-    console.log(`Slider moveto ${idx}`);
     if (idx < 0) return;
     this.animating = true;
     this._animateTitle(idx);
@@ -22,6 +22,24 @@ class Slider {
     this._animateTools(idx);
     this._animateIcon(idx);
     this._animateIndex(idx);
+  }
+
+  setTo(idx) {
+    if (idx < 0) return;
+    this._removeStyles();
+    this.titles.innerText = this.titlesAnim.labels[idx];
+
+    this.texts.children[this.current].classList.add("hide");
+    this.texts.children[idx].classList.remove("hide");
+
+    this.icons.children[this.current].classList.add("hide");
+    this.icons.children[idx].classList.remove("hide");
+
+    this.tools[this.current].classList.add("hide");
+    this.tools[idx].classList.remove("hide");
+
+    this.index.firstElementChild.textContent = `0${idx + 1}`;
+    this.current = idx;
   }
 
   animatePresentation(idx, reverse = false) {
@@ -59,7 +77,6 @@ class Slider {
       opacity: [0, 1],
       translateY: ["50%", 0],
       begin: () => {
-        console.log(`Slider current ${this.current}`);
         this.texts.children[this.current].classList.add("hide");
         this.texts.children[idx].classList.remove("hide");
       },
@@ -95,7 +112,6 @@ class Slider {
   }
 
   _animateTools(idx, options = {}) {
-    console.log(this.tools[this.current]);
     anime
       .timeline({
         ...options,
@@ -147,6 +163,17 @@ class Slider {
       duration: 250,
       opacity: [0, 1],
     });
+  }
+
+  _removeStyles() {
+    // Removes the unwanted attributes set by animation
+    this.icons.removeAttribute("style");
+    this.index.removeAttribute("style");
+    this.elem.querySelector(".js-skill-desc").removeAttribute("style");
+    this.index.firstElementChild.removeAttribute("style");
+    this.elem.querySelector(".js-skills-back-btn").removeAttribute("style");
+    this.texts.children[this.current].removeAttribute("style");
+    this.tools[this.current].removeAttribute("style");
   }
 }
 
@@ -224,6 +251,9 @@ class SliderNavbar {
         targets: this.indexElem,
         translateY: ["100%", 0],
         complete: () => {
+          if (reverse) {
+            console.log("removing attr");
+          }
           if (animCallbacks.complete) animCallbacks.complete();
         },
       });
@@ -234,6 +264,7 @@ class SliderNavbar {
   next() {
     if (this.isAnimating()) return;
     const n = this.current + 1;
+    if (n < 0 || n >= this.total) return;
     this.moveTo(n);
     this.slider?.moveTo(n);
   }
@@ -241,20 +272,34 @@ class SliderNavbar {
   prev() {
     if (this.isAnimating()) return;
     const n = this.current - 1;
+    if (n < 0 || n >= this.total) return;
     this.moveTo(n);
     this.slider?.moveTo(n);
   }
 
+  _removeStyles() {
+    // Removes the unwanted attributes set by animation
+    this.barElem.removeAttribute("style");
+    this.elem.querySelector(".js-btn-prev").removeAttribute("style");
+    this.elem.querySelector(".js-btn-next").removeAttribute("style");
+    this.indexElem.removeAttribute("style");
+  }
+
   setTo(n) {
     if (n < 0 || n >= this.total) return;
+    this._removeStyles();
     this.current = n;
     const offset = this.indexElem.getBoundingClientRect().width / 2;
     const trackW = this.trackElem.getBoundingClientRect().width;
     const leftPos = trackW * (n / (this.total - 1)) - offset;
     const leftPercent = (leftPos / trackW) * 100;
-    console.log(`Data - ${offset}, ${trackW}, ${leftPos}, ${leftPercent}`);
     this.currentElem.textContent = `0${n + 1}`;
     this.indexElem.style.left = `${leftPercent}%`;
+    this.setSliderTo(n);
+  }
+
+  setSliderTo(n) {
+    this.slider?.setTo(n);
   }
 
   moveTo(n) {
