@@ -69,6 +69,7 @@ class CursorDrag {
 
     this.elem.addEventListener("touchend", () => {
       this.stop();
+      this._resetGrab();
     });
   }
 
