@@ -7,7 +7,7 @@
     font-family: v.$font-rz-bold;
     margin-left: 32px;
     max-width: 364px;
-    margin-top: 64px;
+    // margin-top: 64px;
 
     @include mx.screen-s {
       max-width: 496px;
@@ -28,54 +28,73 @@
 }
 
 .contact {
+  position: relative;
   height: 65%;
+  max-height: 768px;
   display: flex;
   justify-content: space-between;
   margin-left: 32px;
   margin-top: 16px;
-
-  //   @include mx.screen-s {
-  //     font-size: v.$font-size-xl;
-  //   }
+  overflow: hidden;
 
   @include mx.screen-m {
     margin-left: 126px;
   }
 
-  //   @include mx.screen-l {
-  //     font-size: v.$font-size-xxl;
-  //   }
+  @include mx.screen-l {
+    justify-content: flex-start;
+  }
+
+  &__background-icon {
+    position: absolute;
+    width: 412px;
+    top: 0;
+    right: -96px;
+    margin: auto;
+    opacity: 0.1;
+
+    @include mx.screen-l {
+      width: 512px;
+    }
+  }
 
   &__desc {
     position: relative;
-    width: 45%;
-    max-width: 442px;
-    min-width: 332px;
-    height: 100%;
+    width: 90%;
+    max-width: 342px;
+    min-width: 300px;
+    height: 90%;
     background-color: v.$color-secondary;
     color: v.$color-tertiary;
     padding: 16px;
     overflow: visible;
-  }
 
-  &__email-icon {
-    position: absolute;
-    width: 96px;
-    top: 16px;
-    left: 16px;
-    // right: 56px;
-    left: 8px;
-    opacity: 0.1;
+    @include mx.screen-s {
+      width: 70%;
+    }
+
+    @include mx.screen-m {
+      max-width: 442px;
+      min-width: 396px;
+      width: 45%;
+    }
   }
 
   &__email {
     font-family: v.$font-rz-bold;
-    font-size: v.$font-size-xl;
-    color: v.$color-tertiary;
-    transition: color 0.2s linear;
+    font-size: v.$font-size-m;
+    color: v.$color-primary;
 
     &:hover {
-      color: v.$color-primary;
+      text-decoration: underline;
+    }
+
+    @include mx.screen-s {
+      font-size: v.$font-size-l;
+    }
+
+    @include mx.screen-l {
+      font-size: v.$font-size-xl;
     }
   }
 
@@ -85,26 +104,58 @@
   }
 
   &__links {
+    position: absolute;
+    width: fit-content;
+    right: 8px;
+    bottom: 0px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    align-items: flex-end;
     align-self: center;
-    width: 45%;
-    height: 50%;
+    width: fit-content;
+    background-color: v.$color-primary;
+    padding: 8px;
     // border: solid 1px red;
-  }
 
-  &__link {
-    font-family: v.$font-rz-bold;
-    font-size: v.$font-size-l;
-    color: black;
-    transition: color 0.2s linear;
+    @include mx.screen-s {
+      padding: 24px 16px;
+    }
 
     @include mx.screen-m {
+      // width: 45%;
+      height: 45%;
+      padding: 0;
+      position: relative;
+      background-color: initial;
+      color: black;
     }
 
     @include mx.screen-l {
-      font-size: v.$font-size-xl;
+      margin: auto;
+    }
+  }
+
+  &__links-label {
+    font-size: v.$font-size-xs;
+    color: v.$color-primary;
+    text-align: right;
+  }
+
+  &__link {
+    width: fit-content;
+    font-family: v.$font-rz-bold;
+    font-size: v.$font-size-s;
+    color: black;
+    padding: 8px;
+    transition: color 0.2s linear;
+
+    @include mx.screen-s {
+      font-size: v.$font-size-m;
+    }
+
+    @include mx.screen-l {
+      font-size: v.$font-size-l;
     }
 
     &:hover {
@@ -113,6 +164,10 @@
   }
 
   &__link-icon {
-    width: 42px;
+    width: 24px;
+
+    @include mx.screen-l {
+      width: 32px;
+    }
   }
 }
