@@ -57,3 +57,17 @@
     display: initial;
   }
 }
+
+.label-me {
+  display: none;
+  position: absolute;
+  font-size: v.$font-size-xs;
+  color: v.$color-primary;
+  top: 84px;
+  right: 32px;
+  transform: rotate(-90deg);
+
+  @include mx.screen-l {
+    display: initial;
+  }
+}
