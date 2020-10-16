@@ -4,42 +4,57 @@ export default class MouseMoveAnim {
   constructor(targetQuery, movingElemQuery, options = {}) {
     this.elem = document.querySelector(targetQuery);
     this.movingElem = document.querySelector(movingElemQuery);
+    this.options = options;
+
     this.elemRect = this.elem.getBoundingClientRect();
-    this.stopped = false;
+    this.stopped = true;
+    this.usingTouch = false;
 
-    this.dx = 0;
-    this.dy = 0;
-    this.friction = 1 / 30;
+    this.cx = 0;
+    this.cy = 0;
 
-    this.elem.addEventListener("mousemove", (e) => {
-      this.dx = e.clientX - (this.elemRect.width / 2 + this.elemRect.left);
-      this.dy = e.clientY - this.elemRect.top - this.elemRect.height / 2;
-    });
+    this.dxMax = 0;
+    this.dyMax = 0;
 
-    this.elem.addEventListener("mouseover", () => {
-      if (this.stopped) return;
-      if (options.mouseover) options.mouseover();
+    this.x = 0;
+    this.y = 0;
+
+    this.friction = options.friction ?? 1 / 30;
+
+    this.mouseMoveHandler = (e) => {
+      const dx = e.clientX - this.cx;
+      const dy = e.clientY - this.cy;
+      this.x = this._easeOutCubic(dx / this.dxMax) * this.dxMax;
+      this.y = this._easeOutCubic(dy / this.dyMax) * this.dyMax;
+    };
+
+    this.elem.addEventListener("mouseenter", (e) => {
+      if (this.usingTouch) return;
+      if (options.mouseenter) options.mouseenter(e);
 
       this.elemRect = this.elem.getBoundingClientRect();
 
-      const left = this.elemRect.left; // + 0.6 * this.elemRect.width;
-      const top = this.elemRect.top - 2 * this.elemRect.height - 20;
+      this.dxMax = this.elemRect.width / 2;
+      this.dyMax = this.elemRect.height / 2;
 
-      this.movingElem.style.left = `${left}px`;
-      this.movingElem.style.top = `${top}px`;
-
-      this.movingElem.classList.remove("hide");
+      this.cx = this.elemRect.left + this.dxMax;
+      this.cy = this.elemRect.top + this.dyMax;
+      this.init();
     });
 
-    this.elem.addEventListener("mouseout", () => {
-      if (options.mouseout) options.mouseout();
+    this.elem.addEventListener("mouseleave", (e) => {
+      this.stop();
+      if (this.options.mouseleave) this.options.mouseleave(e);
+    });
 
-      this.movingElem.classList.add("hide");
+    // To prevent effect on touch inputs
+    this.elem.addEventListener("touchstart", () => {
+      this.usingTouch = true;
     });
   }
 
   stop() {
-    this.movingElem.classList.add("hide");
+    this.elem.removeEventListener("mousemove", this.mouseMoveHandler);
     this.stopped = true;
   }
 
@@ -48,13 +63,11 @@ export default class MouseMoveAnim {
   }
 
   _loop() {
-    const x =
-      this._easeOutCubic(this.dx / this.elemRect.width) * this.elemRect.width;
-    const y =
-      this._easeOutCubic(this.dy / this.elemRect.height) * this.elemRect.height;
-
-    this.movingElem.style.transform = `translate(${x * this.friction}px, ${
-      y * this.friction
+    if (this.stopped || this.usingTouch) {
+      return;
+    }
+    this.movingElem.style.transform = `translate(${this.x * this.friction}px, ${
+      this.y * this.friction
     }px)`;
     window.requestAnimationFrame(() => {
       this._loop();
@@ -62,6 +75,8 @@ export default class MouseMoveAnim {
   }
 
   init() {
+    this.stopped = false;
+    this.elem.addEventListener("mousemove", this.mouseMoveHandler);
     this._loop();
   }
 }
