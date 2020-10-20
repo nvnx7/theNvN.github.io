@@ -8,17 +8,14 @@
   left: 164px;
   overflow: visible;
   background-color: black;
-  cursor: grab;
-
-  &.grabbing {
-    cursor: grabbing;
-  }
 
   &__arrow {
     position: absolute;
     width: 11px;
     top: 0;
     bottom: 0;
+    left: 0;
+    right: 0;
     margin: auto;
 
     &--left {
@@ -29,6 +26,20 @@
     &--right {
       right: -32px;
       animation: arrow-anim-right 0.5s ease-in 0s infinite alternate;
+    }
+
+    &--up {
+      width: 12px;
+      top: -32px;
+      left: -6px;
+      animation: arrow-anim-up 0.5s ease-in 0s infinite alternate;
+    }
+
+    &--down {
+      width: 12px;
+      bottom: -32px;
+      left: -6px;
+      animation: arrow-anim-down 0.5s ease-in 0s infinite alternate;
     }
   }
 
@@ -67,5 +78,23 @@
   }
   to {
     transform: translateX(6px);
+  }
+}
+
+@keyframes arrow-anim-up {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes arrow-anim-down {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(6px);
   }
 }
