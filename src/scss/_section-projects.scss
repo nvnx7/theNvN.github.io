@@ -1,0 +1,188 @@
+@use "variables" as v;
+@use "mixins" as mx;
+
+.full-page__section--projects {
+}
+
+.text-appear {
+  &--text-projects {
+    max-width: 796px;
+    font-size: v.$font-size-l;
+    margin-top: 16px;
+
+    @include mx.screen-s {
+      font-size: v.$font-size-xl;
+    }
+
+    @include mx.screen-m {
+      font-size: v.$font-size-xxl;
+      margin-left: 126px;
+    }
+  }
+}
+
+.project-titles {
+  display: flex;
+  flex-direction: column;
+  font-family: v.$font-rz-bold;
+  font-size: v.$font-size-xxl;
+  margin-top: 64px;
+
+  &__title {
+    margin: 8px 0;
+  }
+
+  @include mx.screen-m {
+    margin-left: 126px;
+  }
+}
+
+.projects {
+  display: grid;
+  height: 92%;
+  padding: 16px 64px 8px 64px;
+  grid-template-rows: 1fr 1fr;
+  grid-auto-flow: column;
+  gap: 32px 184px;
+  cursor: grab;
+  overflow: hidden;
+  // border: solid 1px red;
+
+  @include mx.screen-m {
+    margin-left: 126px;
+  }
+}
+
+.project {
+  height: 70%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 32px;
+  overflow: hidden;
+
+  // background-color: v.$color-secondary;
+
+  @include mx.screen-m {
+    margin-left: 126px;
+  }
+
+  &__list-wrapper {
+    position: relative;
+    // width: 45%;
+    width: 90%;
+    height: 90%;
+    border: solid 1px red;
+    overflow: hidden;
+
+    cursor: grab;
+
+    &.grabbing {
+      cursor: grabbing;
+    }
+  }
+
+  &__list-item-pos {
+    position: absolute;
+    height: 2px;
+    top: 30%;
+    width: 40%;
+    // left: 0;
+    right: 0;
+    // border: solid 1px red;
+    background-color: v.$color-primary;
+  }
+
+  &__list {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: fit-content;
+    // border: solid 1px blue;
+  }
+
+  &__title {
+    width: fit-content;
+    font-family: v.$font-rz-bold;
+    font-size: v.$font-size-l;
+    padding: 8px 0px;
+    border: solid 1px red;
+    z-index: 2;
+
+    &.selected {
+      color: v.$color-primary;
+    }
+
+    @include mx.screen-l {
+      font-size: v.$font-size-xl;
+    }
+  }
+
+  &__desc {
+    display: none;
+    position: relative;
+    width: 50%;
+    max-width: 396px;
+    min-width: 356px;
+    height: 400px;
+    background-color: v.$color-primary;
+    padding: 64px 16px 32px 16px;
+    color: v.$color-tertiary;
+    // border: solid 1px red;
+  }
+
+  &__name {
+    position: absolute;
+    font-family: v.$font-rz-bold;
+    font-size: v.$font-size-l;
+    color: black;
+    white-space: nowrap;
+    top: 8px;
+    left: -24px;
+  }
+
+  &__about {
+    color: v.$color-tertiary;
+    margin-bottom: 42px;
+    text-indent: 42px;
+  }
+
+  &__links,
+  &__tools {
+    padding: 8px 0;
+  }
+
+  &__links-list,
+  &__tools-list {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    padding: 2px 0;
+  }
+
+  &__link {
+    margin-right: 16px;
+
+    a {
+      font-family: v.$font-rz-bold;
+      color: v.$color-tertiary;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  &__tool {
+    margin-right: 16px;
+    font-family: v.$font-rz-bold;
+  }
+
+  &__tools-label,
+  &__links-label {
+    font-size: v.$font-size-xs;
+    color: v.$color-secondary;
+  }
+}
