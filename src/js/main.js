@@ -1,3 +1,4 @@
+import anime from "animejs/lib/anime.es.js";
 import HamburgerButton from "./hamburgerButton.js";
 import { SmallWidthNavbar, LargeWidthNavbar } from "./navbar.js";
 import "../scss/style.scss";
@@ -5,9 +6,11 @@ import FullPage from "./fullPage.js";
 import playLogoAnim from "./logoAnim.js";
 import TextAppearAnim from "./textAppearAnim.js";
 import playLowPolyPicAnim from "./lowPolyPicAnim";
-// import MouseMoveAnim from "./mouseMoveAnim.js";
 import { Slider, SliderNavbar } from "./slider.js";
-import { CursorDrag } from "./cursor.js";
+import { CursorDrag, CursorProjectsSlider } from "./cursor.js";
+import MouseMoveAnim from "./mouseMoveAnim.js";
+import { ScrambleText } from "./scrambleText.js";
+import projects from "./projectsData";
 
 const smallNavbar = new SmallWidthNavbar(".js-small-width-nav");
 const Btn = new HamburgerButton(".js-btn-toggle-nav", (isOpen) => {
@@ -21,9 +24,8 @@ const salutationTextAppear = new TextAppearAnim(".js-text-greet-salutation");
 const nameTextAppear = new TextAppearAnim(".js-text-greet-name");
 const aboutTextAppear = new TextAppearAnim(".js-text-about");
 const skillsTextAppear = new TextAppearAnim(".js-text-skills");
-// const projectsTextAppear = new TextAppearAnim(".js-text-projects");
-// const skillLabelScrambleTexts = new ScrambleTexts(".js-skill-names");
-// skillLabelScrambleTexts;
+const projectsTextAppear = new TextAppearAnim(".js-text-projects");
+const connectTextAppear = new TextAppearAnim(".js-text-connect");
 
 const fullPage = new FullPage(".js-full-page", (idx) => {
   switch (idx) {
@@ -40,8 +42,10 @@ const fullPage = new FullPage(".js-full-page", (idx) => {
       skillsTextAppear.play();
       break;
     case 3:
-      // projectsTextAppear.play();
+      projectsTextAppear.play();
       break;
+    case 4:
+      connectTextAppear.play();
   }
 });
 
@@ -81,8 +85,10 @@ document.querySelector(".js-text-skills").addEventListener("touchstart", () => {
 
 document.querySelector(".js-text-skills").addEventListener("mouseover", (e) => {
   // Don't do anything if touch input is used
-  if (usingTouch) return;
-  usingTouch = false;
+  if (usingTouch) {
+    usingTouch = false;
+    return;
+  }
   const classList = e.target.parentElement.parentElement.classList;
   let idx = 0;
   if (classList.contains("js-skill-name-web")) {
@@ -175,7 +181,6 @@ document.querySelector(".js-skills-back-btn").addEventListener("click", () => {
       document.querySelector(".js-text-skills").classList.remove("hide");
       skillsTextAppear.play();
       sliderNav.setTo(sliderNav.current);
-      // sliderNav.setSliderTo(sliderNav.current);
     },
   });
 });
@@ -184,9 +189,96 @@ new CursorDrag(".js-skills-slider", ".js-cursor", (dir) => {
   dir < 0 ? sliderNav.next() : sliderNav.prev();
 });
 
+// Insert all titles
+const projectListElem = document.querySelector(".js-project-list");
+for (let i = 0; i < projects.length; i++) {
+  const child = document.createElement("LI");
+  child.className = "project__title";
+  child.setAttribute("data-key", i);
+  child.textContent = projects[i].title;
+  projectListElem.appendChild(child);
+}
+
+const projectElem = document.querySelector(".js-project-desc");
+function insertProject(project) {
+  // Insert title
+  projectElem
+    .querySelector(".js-project-name")
+    .setAttribute("data-label", project.title);
+
+  // Insert description
+  projectElem.querySelector(".js-project-about").textContent = project.desc;
+
+  // Insert tools
+
+  const toolsListElem = projectElem.querySelector(".js-tools-list");
+  while (
+    toolsListElem.lastElementChild // remove all existing children
+  )
+    toolsListElem.removeChild(toolsListElem.lastElementChild);
+
+  for (let tool of project.tools) {
+    const child = document.createElement("LI");
+    child.className = "project__tool";
+    child.textContent = tool;
+    toolsListElem.appendChild(child);
+  }
+
+  // Insert items
+  const linksListElem = projectElem.querySelector(".js-links-list");
+  while (
+    linksListElem.lastElementChild // remove all existing children
+  )
+    linksListElem.removeChild(linksListElem.lastElementChild);
+
+  for (let link of project.links) {
+    const childA = document.createElement("A");
+    childA.setAttribute("href", link.url);
+    childA.setAttribute("target", "__blank");
+    childA.textContent = link.label;
+
+    const childLI = document.createElement("LI");
+    childLI.className = "project__link";
+    childLI.appendChild(childA);
+
+    linksListElem.appendChild(childLI);
+  }
+}
+
+// Set initial selection
+insertProject(projects[0]);
+projectElem.querySelector(".js-project-name").textContent = projects[0].title;
+
+new CursorProjectsSlider(
+  ".js-project-list-wrapper",
+  ".js-cursor-projects",
+  (idx) => {
+    console.log(`Selected ${idx}`);
+    anime({
+      targets: [
+        projectElem.querySelector(".js-project-about"),
+        projectElem.querySelector(".js-project-tools"),
+        projectElem.querySelector(".js-project-links"),
+      ],
+      translateY: ["20%", 0],
+      opacity: [0, 1],
+      easing: "easeOutCubic",
+      duration: 350,
+      begin: () => {
+        insertProject(projects[idx]);
+        new ScrambleText(".js-project-name").scramble();
+      },
+    });
+  }
+);
+
+new MouseMoveAnim(".js-contact-links", ".js-contact-bg-icon", {
+  friction: 1 / 70,
+});
+
 fullPage.setUpWithNavbar(largeWidthNavbar);
 fullPage.init();
 
-document.getElementById("section-skills").scrollIntoView();
+document.getElementById("section-projects").scrollIntoView();
 
 Btn;
