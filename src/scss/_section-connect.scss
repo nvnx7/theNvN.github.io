@@ -7,7 +7,7 @@
     font-family: v.$font-rz-bold;
     margin-left: 32px;
     max-width: 364px;
-    // margin-top: 64px;
+    margin-top: 32px;
 
     @include mx.screen-s {
       max-width: 496px;
@@ -62,12 +62,25 @@
     position: relative;
     width: 90%;
     max-width: 342px;
-    min-width: 300px;
-    height: 90%;
-    background-color: v.$color-secondary;
+    min-width: 284px;
+    height: 85%;
+    background-color: v.$color-primary;
     color: v.$color-tertiary;
-    padding: 16px;
-    overflow: visible;
+    padding: 8px 16px;
+    margin-left: 32px;
+    z-index: 1;
+
+    &::before {
+      content: "";
+      position: absolute;
+      box-sizing: border-box;
+      width: 100%;
+      height: 100%;
+      top: 3px;
+      left: 3px;
+      border: solid 4px v.$color-primary;
+      z-index: -1;
+    }
 
     @include mx.screen-s {
       width: 70%;
@@ -76,21 +89,19 @@
     @include mx.screen-m {
       max-width: 442px;
       min-width: 396px;
-      width: 45%;
+      width: 40%;
     }
   }
 
   &__email {
+    position: absolute;
+    left: -32px;
     font-family: v.$font-rz-bold;
-    font-size: v.$font-size-m;
-    color: v.$color-primary;
+    font-size: v.$font-size-l;
+    color: black;
 
     &:hover {
       text-decoration: underline;
-    }
-
-    @include mx.screen-s {
-      font-size: v.$font-size-l;
     }
 
     @include mx.screen-l {
@@ -100,7 +111,11 @@
 
   &__text {
     text-indent: 10%;
-    margin-top: 16px;
+    margin-top: 96px;
+
+    @include mx.screen-l {
+      margin-top: 128px;
+    }
   }
 
   &__links {
@@ -116,7 +131,7 @@
     width: fit-content;
     background-color: v.$color-primary;
     padding: 8px;
-    // border: solid 1px red;
+    z-index: 10;
 
     @include mx.screen-s {
       padding: 24px 16px;
@@ -148,7 +163,6 @@
     font-size: v.$font-size-s;
     color: black;
     padding: 8px;
-    transition: color 0.2s linear;
 
     @include mx.screen-s {
       font-size: v.$font-size-m;

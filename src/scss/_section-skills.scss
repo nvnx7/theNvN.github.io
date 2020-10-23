@@ -1,13 +1,9 @@
 @use "variables" as v;
 @use "mixins" as mx;
 
-.full-page__section--skills {
+.section--skills {
   position: relative;
   overflow: hidden;
-
-  @include mx.screen-m {
-    padding-left: v.$nav-offset;
-  }
 }
 
 .text-hover-prompt {
@@ -205,21 +201,26 @@
     right: 16px;
     top: 0;
     bottom: 0;
-    padding: 84px 4px 4px 4px;
+    padding: 72px 4px 4px 4px;
 
-    // &::before {
-    //   content: "";
-    //   position: absolute;
-    //   box-sizing: border-box;
-    //   width: 100%;
-    //   height: 100%;
-    //   top: 4px;
-    //   left: 4px;
-    //   border: solid 4px v.$color-primary;
-    // }
+    @include mx.screen-l {
+      padding-top: 96px;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      box-sizing: border-box;
+      width: 100%;
+      height: 100%;
+      top: 3px;
+      left: 3px;
+      border: solid 4px v.$color-primary;
+    }
   }
 
   &__skill-text {
+    text-indent: 24px;
     &.hide {
       display: none;
     }
@@ -276,9 +277,9 @@
   }
 
   &__skill-tools-label {
-    font-weight: bold;
     text-align: end;
-    font-size: smaller;
+    font-size: v.$font-size-xs;
+    color: v.$color-primary;
   }
 
   &__skill-tools-container {
@@ -322,7 +323,7 @@
     margin-bottom: auto;
     width: 90%;
     transform: rotate(-90deg);
-    opacity: 0.05;
+    opacity: 0.8;
 
     @include mx.screen-m {
       width: 95%;
@@ -361,6 +362,7 @@
   }
 
   &__btn {
+    position: relative;
     width: 36px;
     padding: 4px;
     cursor: pointer;
@@ -368,6 +370,28 @@
 
     &:hover {
       transform: scale(1.2);
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 35%;
+      height: 35%;
+      border-left: solid 1px black;
+      border-top: solid 1px black;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 35%;
+      height: 35%;
+      border-right: solid 1px black;
+      border-bottom: solid 1px black;
     }
   }
 

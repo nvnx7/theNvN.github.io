@@ -1,14 +1,10 @@
 @use "variables" as v;
 @use "mixins" as mx;
 
-.full-page__section--about {
+.section__content--about {
   position: relative;
-  padding-left: 36px;
+  // padding-left: 36px;
   overflow: hidden;
-
-  @include mx.screen-m {
-    padding-left: v.$nav-offset;
-  }
 }
 
 .text-appear {

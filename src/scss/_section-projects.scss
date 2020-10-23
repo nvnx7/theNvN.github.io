@@ -1,13 +1,11 @@
 @use "variables" as v;
 @use "mixins" as mx;
 
-// .full-page__section--projects {
-// }
-
 .text-appear {
   &--text-projects {
     max-width: 796px;
     font-size: v.$font-size-l;
+    margin-left: 32px;
     margin-top: 16px;
 
     @include mx.screen-s {
@@ -147,8 +145,20 @@
     background-color: v.$color-primary;
     padding: 42px 16px 32px 16px;
     color: v.$color-tertiary;
-    margin-left: 24px;
+    margin-left: 56px;
+    margin-right: 4px;
     // border: solid 1px red;
+
+    &::before {
+      content: "";
+      position: absolute;
+      box-sizing: border-box;
+      width: 100%;
+      height: 100%;
+      top: 3px;
+      left: 3px;
+      border: solid 4px v.$color-primary;
+    }
 
     @include mx.screen-m {
       width: 45%;
