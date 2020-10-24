@@ -5,7 +5,6 @@
   &--text-connect {
     font-size: v.$font-size-l;
     font-family: v.$font-rz-bold;
-    margin-left: 32px;
     max-width: 364px;
     margin-top: 32px;
 
@@ -17,7 +16,6 @@
     @include mx.screen-m {
       max-width: 512px;
       font-size: v.$font-size-xl;
-      margin-left: 126px;
     }
 
     @include mx.screen-l {
@@ -33,13 +31,8 @@
   max-height: 768px;
   display: flex;
   justify-content: space-between;
-  margin-left: 32px;
   margin-top: 16px;
   overflow: hidden;
-
-  @include mx.screen-m {
-    margin-left: 126px;
-  }
 
   @include mx.screen-l {
     justify-content: flex-start;
