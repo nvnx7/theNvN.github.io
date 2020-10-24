@@ -62,6 +62,10 @@ const projects = [
         label: "Web",
         url: "https://tweetsnapbot.herokuapp.com",
       },
+      {
+        label: "Twitter",
+        url: "https://twitter.com/snap_twt",
+      },
     ],
   },
 
