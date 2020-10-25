@@ -18,24 +18,24 @@
     .text-piece {
       display: inline-block;
       line-height: 1;
-      padding-right: 0.25em;
+      margin-right: 0.25em;
     }
   }
 
   &__line-top {
-    width: 10%;
+    width: 10px;
     position: absolute;
     background-color: v.$color-primary;
-    height: 1px;
+    height: 2px;
     top: 0;
     right: 0;
   }
 
   &__line-bottom {
-    width: 10%;
+    width: 12px;
     position: absolute;
     background-color: v.$color-primary;
-    height: 1px;
+    height: 2px;
     bottom: 0;
     left: 0;
   }

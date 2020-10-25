@@ -1,7 +1,7 @@
 @use "variables" as v;
 @use "mixins" as mx;
 
-.section--skills {
+.section__content--skills {
   position: relative;
   overflow: hidden;
 }
@@ -32,9 +32,8 @@
   &--text-skills {
     font-size: v.$font-size-l;
     font-family: v.$font-rz-bold;
-    margin-left: 32px;
     max-width: 364px;
-    margin-top: 64px;
+    margin-top: 32px;
     z-index: 20;
     transition: opacity 0.4s ease-out, color 0.5s;
 
@@ -54,7 +53,6 @@
     @include mx.screen-m {
       max-width: 512px;
       font-size: v.$font-size-xl;
-      margin-left: 126px;
     }
 
     @include mx.screen-l {
@@ -67,7 +65,30 @@
       color: v.$color-primary;
 
       .text-piece {
-        text-decoration: underline;
+        position: relative;
+        padding: 8px;
+
+        &::before {
+          content: "";
+          width: 12px;
+          height: 12px;
+          position: absolute;
+          top: 0;
+          left: 0;
+          border-top: solid 1px v.$color-primary;
+          border-left: solid 1px v.$color-primary;
+        }
+
+        &::after {
+          content: "";
+          width: 12px;
+          height: 12px;
+          position: absolute;
+          bottom: 0;
+          right: 0;
+          border-bottom: solid 1px v.$color-primary;
+          border-right: solid 1px v.$color-primary;
+        }
       }
     }
   }
@@ -89,10 +110,6 @@
     transform: scale(1.12);
     transition: opacity 0.5s ease-out;
   }
-
-  @include mx.screen-m {
-    margin-left: 76px;
-  }
 }
 
 .back-btn {
@@ -100,7 +117,7 @@
   height: 42px;
   position: absolute;
   right: 8px;
-  top: 8px;
+  top: 16px;
   cursor: pointer;
   z-index: 10;
   transition: all 0.2s ease-out;
@@ -162,49 +179,24 @@
 
   &__skill-desc {
     position: relative;
-    width: 55%;
-    max-width: 496px;
-    min-width: 396px;
+    width: 45%;
+    max-width: 456px;
+    min-width: 296px;
     height: 400px;
     margin-top: 32px;
-    margin-left: 8px;
+    margin-left: 32px;
     align-self: flex-start;
+    background-color: v.$color-primary;
 
     @include mx.screen-m {
       height: 426px;
-      margin-left: 0;
+      margin-left: 36px;
     }
 
     @include mx.screen-l {
-      width: 50%;
+      width: 45%;
       height: 500px;
-    }
-  }
-
-  &__skill-title {
-    position: absolute;
-    left: 0;
-    top: 16px;
-    font-family: v.$font-rz-bold;
-    font-size: v.$font-size-xl;
-
-    @include mx.screen-l {
-      font-size: v.$font-size-xxl;
-    }
-  }
-
-  &__skill-texts {
-    position: absolute;
-    background-color: v.$color-primary;
-    color: v.$color-tertiary;
-    left: 10%;
-    right: 16px;
-    top: 0;
-    bottom: 0;
-    padding: 72px 4px 4px 4px;
-
-    @include mx.screen-l {
-      padding-top: 96px;
+      margin-left: 42px;
     }
 
     &::before {
@@ -219,10 +211,59 @@
     }
   }
 
+  &__skill-title {
+    position: absolute;
+    left: -10%;
+    top: 8px;
+    font-family: v.$font-rz-bold;
+    font-size: v.$font-size-l;
+
+    @include mx.screen-m {
+      top: 16px;
+      font-size: v.$font-size-xl;
+    }
+
+    @include mx.screen-l {
+      font-size: v.$font-size-xxl;
+    }
+  }
+
+  &__skill-texts {
+    width: 100%;
+    height: 100%;
+    color: v.$color-tertiary;
+    padding: 56px 4px 4px 8px;
+
+    @include mx.screen-m {
+      padding: 72px 8px 8px 16px;
+    }
+
+    @include mx.screen-l {
+      padding-top: 96px;
+    }
+  }
+
   &__skill-text {
-    text-indent: 24px;
+    text-indent: 16px;
+
     &.hide {
       display: none;
+    }
+
+    ul {
+      padding-top: 8px;
+    }
+
+    li {
+      padding: 4px;
+
+      &::before {
+        content: "// ";
+      }
+    }
+
+    a {
+      font-family: v.$font-rz-bold;
     }
   }
 
@@ -263,15 +304,18 @@
     position: absolute;
     width: fit-content;
     max-width: 45%;
-    top: 55%;
+    min-height: 30%;
+    bottom: 5%;
     right: 8px;
     margin-right: 4px;
 
     @include mx.screen-m {
       position: relative;
+      min-height: unset;
       align-self: flex-end;
       margin-right: 12px;
       top: unset;
+      bottom: unset;
       margin-bottom: 64px;
     }
   }
@@ -279,7 +323,10 @@
   &__skill-tools-label {
     text-align: end;
     font-size: v.$font-size-xs;
-    color: v.$color-primary;
+
+    @include mx.screen-m {
+      color: v.$color-primary;
+    }
   }
 
   &__skill-tools-container {

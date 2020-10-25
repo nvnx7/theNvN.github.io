@@ -19,7 +19,7 @@
   height: 100%;
   scroll-snap-align: start;
   scroll-snap-stop: always;
-  // border-bottom: solid red 1px;
+  border-bottom: solid red 1px;
 
   &__title {
     position: relative;
@@ -29,7 +29,6 @@
     font-family: v.$font-rz-bold;
     font-size: 8vw;
     color: v.$color-secondary;
-    // border: solid 2px red;
 
     @include mx.screen-m {
       display: initial;
@@ -47,10 +46,11 @@
 
   &__content {
     flex: 1 1 auto;
-    border: solid 2px red;
-    padding-top: v.$nav-max-height;
+    padding-left: 16px;
+    padding-top: 42px;
 
     @include mx.screen-m {
+      padding-left: 104px;
       padding-top: 0;
     }
   }
