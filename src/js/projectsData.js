@@ -72,7 +72,7 @@ const projects = [
   {
     title: "Gaze Pointer Controller",
     desc:
-      "A fun application that uses Edge AI computer vision to control the mouse pointer on PC with you eye gaze.",
+      "A fun application that uses Edge AI computer vision to control the mouse pointer on screen with your eye gaze.",
     tools: ["Python", "OpenVino", "OpenCV"],
     links: [
       {
