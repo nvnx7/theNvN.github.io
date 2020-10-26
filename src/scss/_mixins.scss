@@ -1,5 +1,11 @@
 @use "variables" as v;
 
+@mixin screen-xs {
+  @media only screen and (min-width: v.$width-xs) {
+    @content;
+  }
+}
+
 @mixin screen-s {
   @media only screen and (min-width: v.$width-s) {
     @content;
