@@ -84,6 +84,10 @@
       min-width: 396px;
       width: 40%;
     }
+
+    @include mx.screen-land {
+      padding: 4px 8px;
+    }
   }
 
   &__email {
@@ -103,11 +107,15 @@
   }
 
   &__text {
-    text-indent: 10%;
-    margin-top: 96px;
+    text-indent: 16px;
+    padding-top: 96px;
 
     @include mx.screen-l {
-      margin-top: 128px;
+      padding-top: 128px;
+    }
+
+    @include mx.screen-land {
+      padding-top: 84px;
     }
   }
 

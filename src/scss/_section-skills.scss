@@ -154,6 +154,11 @@
     top: 32px;
     right: 16px;
   }
+
+  @include mx.screen-land {
+    width: 42px;
+    height: 42px;
+  }
 }
 
 .skills {
@@ -199,6 +204,12 @@
       margin-left: 42px;
     }
 
+    @include mx.screen-land {
+      width: 50%;
+      margin-top: 16px;
+      height: 312px;
+    }
+
     &::before {
       content: "";
       position: absolute;
@@ -226,6 +237,11 @@
     @include mx.screen-l {
       font-size: v.$font-size-xxl;
     }
+
+    @include mx.screen-land {
+      font-size: v.$font-size-l;
+      top: 4px;
+    }
   }
 
   &__skill-texts {
@@ -240,6 +256,10 @@
 
     @include mx.screen-l {
       padding-top: 96px;
+    }
+
+    @include mx.screen-land {
+      padding: 48px 4px 4px 8px;
     }
   }
 
@@ -318,6 +338,10 @@
       bottom: unset;
       margin-bottom: 64px;
     }
+
+    @include mx.screen-land {
+      margin-bottom: 24px;
+    }
   }
 
   &__skill-tools-label {
@@ -344,6 +368,10 @@
 
     @include mx.screen-l {
       font-size: v.$font-size-l;
+    }
+
+    @include mx.screen-land {
+      font-size: v.$font-size-s;
     }
   }
 
@@ -408,6 +436,10 @@
     justify-content: space-evenly;
   }
 
+  @include mx.screen-land {
+    justify-content: space-between;
+  }
+
   &__btn {
     position: relative;
     width: 36px;
@@ -450,6 +482,10 @@
     @include mx.screen-m {
       width: 75%;
       height: 64px;
+    }
+
+    @include mx.screen-land {
+      height: 48px;
     }
   }
 
@@ -508,6 +544,12 @@
       padding: 0 32px;
       font-size: v.$font-size-m;
     }
+
+    @include mx.screen-land {
+      width: 42px;
+      font-size: v.$font-size-s;
+      padding: 8px 24px;
+    }
   }
 
   &__index-current {
@@ -515,6 +557,10 @@
     top: 0;
     left: 0;
     margin-top: 4px;
+
+    @include mx.screen-land {
+      margin-top: 8px;
+    }
   }
 
   &__index-divider {
@@ -533,5 +579,9 @@
     right: 0;
     bottom: 0;
     margin-bottom: 4px;
+
+    @include mx.screen-land {
+      margin-bottom: 8px;
+    }
   }
 }

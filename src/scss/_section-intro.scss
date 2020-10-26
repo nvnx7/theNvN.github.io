@@ -8,6 +8,10 @@
   align-items: center;
   background-color: v.$color-secondary;
   padding-left: 0;
+
+  @include mx.screen-land {
+    flex-direction: row;
+  }
 }
 
 .section__title--intro {
@@ -20,6 +24,10 @@
   min-width: 300px;
   width: 80%;
   justify-self: flex-start;
+
+  @include mx.screen-land {
+    width: 50%;
+  }
 }
 
 .text-greet {
@@ -30,11 +38,19 @@
     font-size: v.$font-size-xxl;
     margin-bottom: 64px;
   }
+
+  @include mx.screen-land {
+    margin-bottom: unset;
+  }
 }
 
 .text-appear {
   &--text-greet-name {
     color: v.$color-primary;
     margin-left: 40%;
+
+    @include mx.screen-land {
+      margin-left: unset;
+    }
   }
 }

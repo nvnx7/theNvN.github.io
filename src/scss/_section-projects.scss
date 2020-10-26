@@ -14,6 +14,10 @@
     @include mx.screen-m {
       font-size: v.$font-size-xxl;
     }
+
+    @include mx.screen-land {
+      font-size: v.$font-size-xl;
+    }
   }
 }
 
@@ -27,9 +31,8 @@
 
   @include mx.screen-m {
     left: unset;
-    bottom: unset;
+    bottom: 16px;
     right: 0;
-    top: 32px;
   }
 }
 
@@ -46,6 +49,10 @@
   @include mx.screen-m {
     margin-top: 32px;
     align-items: center;
+  }
+
+  @include mx.screen-land {
+    margin-top: unset;
   }
 
   &__list-wrapper {
@@ -96,7 +103,6 @@
     right: 0;
     width: 100%;
     height: fit-content;
-    // border: solid 1px blue;
 
     @include mx.screen-m {
       align-items: flex-start;
@@ -128,6 +134,10 @@
     @include mx.screen-l {
       font-size: v.$font-size-xl;
     }
+
+    @include mx.screen-land {
+      font-size: v.$font-size-m;
+    }
   }
 
   &__desc {
@@ -138,7 +148,7 @@
     background-color: v.$color-primary;
     padding: 42px 16px 32px 16px;
     color: v.$color-tertiary;
-    margin-left: 20px;
+    // margin-left: 20px;
     margin-right: 4px;
     z-index: 1;
 
@@ -156,12 +166,12 @@
 
     @include mx.screen-m {
       width: 45%;
-      min-height: 356px;
       margin-left: 0;
     }
 
     @include mx.screen-l {
       padding-top: 64px;
+      height: 90%;
     }
   }
 
@@ -172,7 +182,7 @@
     color: black;
     white-space: nowrap;
     top: 8px;
-    left: -20px;
+    left: -24px;
 
     @include mx.screen-l {
       font-size: v.$font-size-l;
@@ -181,11 +191,15 @@
 
   &__about {
     color: v.$color-tertiary;
-    margin-bottom: 24px;
-    text-indent: 42px;
+    padding-bottom: 24px;
+    text-indent: 16px;
 
     @include mx.screen-m {
-      margin-bottom: 42px;
+      padding-bottom: 42px;
+    }
+
+    @include mx.screen-land {
+      padding-bottom: 16px;
     }
   }
 
@@ -196,6 +210,10 @@
 
     @include mx.screen-m {
       width: fit-content;
+    }
+
+    @include mx.screen-land {
+      padding: 4px 0;
     }
   }
 

@@ -4,6 +4,10 @@
 .section__content--about {
   position: relative;
   overflow: hidden;
+
+  @include mx.screen-land {
+    padding-top: 32px;
+  }
 }
 
 .text-appear {
@@ -19,6 +23,12 @@
     @include mx.screen-m {
       font-size: v.$font-size-xxl;
     }
+
+    @include mx.screen-land {
+      width: 50%;
+      margin-top: unset;
+      font-size: v.$font-size-l;
+    }
   }
 }
 
@@ -31,6 +41,14 @@
   font-weight: 400;
   margin-top: 24px;
   text-indent: 64px;
+
+  @include mx.screen-land {
+    max-width: 45%;
+    position: absolute;
+    right: 0;
+    bottom: 64px;
+    margin-top: unset;
+  }
 }
 
 .low-poly-pic {

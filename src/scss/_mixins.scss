@@ -17,3 +17,9 @@
     @content;
   }
 }
+
+@mixin screen-land {
+  @media only screen and (orientation: landscape) and (max-height: 512px) {
+    @content;
+  }
+}

@@ -25,6 +25,10 @@ body {
   @include mx.screen-s {
     font-size: 16px;
   }
+
+  @include mx.screen-land {
+    font-size: 14px;
+  }
 }
 
 a {
