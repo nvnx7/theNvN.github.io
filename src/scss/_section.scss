@@ -54,12 +54,13 @@
     padding-top: 42px;
 
     @include mx.screen-m {
-      padding-left: 104px;
+      padding-left: 112px;
       padding-top: 0;
     }
 
     @include mx.screen-land {
       padding-left: 96px;
+      padding-top: 24px;
     }
   }
 }

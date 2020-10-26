@@ -16,7 +16,7 @@
     }
 
     @include mx.screen-land {
-      font-size: v.$font-size-xl;
+      font-size: v.$font-size-l;
     }
   }
 }
@@ -26,13 +26,13 @@
   left: 0;
   bottom: 16px;
   font-size: v.$font-size-xs;
-  color: v.$color-primary;
   transform: rotate(-90deg);
 
   @include mx.screen-m {
     left: unset;
     bottom: 16px;
     right: 0;
+    color: v.$color-primary;
   }
 }
 
@@ -47,7 +47,7 @@
   overflow: hidden;
 
   @include mx.screen-m {
-    margin-top: 32px;
+    margin-top: 16px;
     align-items: center;
   }
 
@@ -74,7 +74,16 @@
     @include mx.screen-m {
       position: relative;
       width: 50%;
+      height: 80%;
+    }
+
+    @include mx.screen-l {
       height: 90%;
+    }
+
+    @include mx.screen-land {
+      min-width: 284px;
+      width: 40%;
     }
   }
 
@@ -148,7 +157,7 @@
     background-color: v.$color-primary;
     padding: 42px 16px 32px 16px;
     color: v.$color-tertiary;
-    // margin-left: 20px;
+    margin-left: 24px;
     margin-right: 4px;
     z-index: 1;
 
@@ -171,7 +180,7 @@
 
     @include mx.screen-l {
       padding-top: 64px;
-      height: 90%;
+      // height: 90%;
     }
   }
 

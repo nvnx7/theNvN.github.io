@@ -37,10 +37,10 @@
 }
 
 .text-about-para {
-  max-width: 612px;
+  max-width: 596px;
   font-weight: 400;
   margin-top: 24px;
-  text-indent: 64px;
+  text-indent: 16px;
 
   @include mx.screen-land {
     max-width: 45%;

@@ -10,7 +10,6 @@
   position: fixed;
   top: 0;
   background-color: v.$color-secondary;
-  // background: none;
   z-index: 100;
   border-bottom: solid v.$color-tertiary 1px;
 
@@ -24,6 +23,11 @@
       height: 80%;
       margin: 0;
     }
+
+    @include mx.screen-land {
+      width: 42px;
+      height: 42px;
+    }
   }
 
   @include mx.screen-m {
@@ -31,6 +35,10 @@
     width: 10%;
     height: 15%;
     justify-content: center;
+  }
+
+  @include mx.screen-land {
+    max-height: 12%;
   }
 }
 
@@ -45,11 +53,15 @@
     display: none;
   }
 
+  @include mx.screen-land {
+    width: 24px;
+    height: 24px;
+  }
+
   &__bar {
     position: absolute;
     width: 100%;
-    height: 2px;
-    mix-blend-mode: difference;
+    height: 1px;
     background-color: v.$color-tertiary;
 
     &--top {
@@ -95,14 +107,19 @@
 
   &--small-width {
     width: 100%;
+    left: 100%;
+    font-size: v.$font-size-xl;
     background-color: v.$color-tertiary;
 
     @include mx.screen-m {
       display: none;
     }
 
-    left: 100%;
-    font-size: 3.5em;
+    @include mx.screen-land {
+      font-size: v.$font-size-l;
+      padding-top: 28px;
+      padding-left: 96px;
+    }
 
     & #{$this}__link {
       width: 50%;
@@ -110,6 +127,10 @@
 
       &:hover {
         color: v.$color-primary;
+      }
+
+      @include mx.screen-land {
+        padding: 16px;
       }
     }
   }

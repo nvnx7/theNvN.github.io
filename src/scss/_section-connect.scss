@@ -22,6 +22,11 @@
       max-width: 710px;
       font-size: v.$font-size-xxl;
     }
+
+    @include mx.screen-land {
+      font-size: v.$font-size-l;
+      margin-top: unset;
+    }
   }
 }
 
@@ -119,18 +124,27 @@
     }
   }
 
+  &__sign {
+    padding-top: 16px;
+    padding-left: 16px;
+    font-family: v.$font-rz-bold;
+
+    &::before {
+      content: "// ";
+    }
+  }
+
   &__links {
     position: absolute;
     width: fit-content;
     right: 8px;
-    bottom: 0px;
+    bottom: 4px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-end;
     align-self: center;
     width: fit-content;
-    background-color: v.$color-primary;
     padding: 8px;
     z-index: 10;
 
@@ -154,14 +168,17 @@
 
   &__links-label {
     font-size: v.$font-size-xs;
-    color: v.$color-primary;
     text-align: right;
+
+    @include mx.screen-m {
+      color: v.$color-primary;
+    }
   }
 
   &__link {
     width: fit-content;
     font-family: v.$font-rz-bold;
-    font-size: v.$font-size-s;
+    font-size: v.$font-size-m;
     color: black;
     padding: 8px;
 

@@ -51,13 +51,16 @@
     }
 
     @include mx.screen-m {
-      max-width: 512px;
       font-size: v.$font-size-xl;
     }
 
     @include mx.screen-l {
       max-width: 710px;
       font-size: v.$font-size-xxl;
+    }
+
+    @include mx.screen-land {
+      font-size: v.$font-size-l;
     }
 
     .skill-name {
