@@ -16,6 +16,10 @@ export default class TextAppearAnim {
         });
       textElem.innerHTML = pieces.join("");
     }
+
+    anime.set(this.elem.querySelectorAll(".text-piece"), {
+      translateY: "110%",
+    });
   }
 
   play(reverse = false, callbackOptions = {}) {
@@ -43,7 +47,7 @@ export default class TextAppearAnim {
       )
       .add(
         {
-          targets: ".text-piece",
+          targets: this.elem.querySelectorAll(".text-piece"),
           translateY: ["110%", 0],
           complete: callbackOptions.complete,
         },
