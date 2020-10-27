@@ -162,6 +162,16 @@ document.querySelector(".js-text-skills").addEventListener("click", (e) => {
       sliderNav.animateIn(idx);
     },
   });
+
+  anime({
+    targets: ".js-skills-bg",
+    easing: "easeOutCubic",
+    duration: 250,
+    opacity: 0,
+    complete: () => {
+      document.querySelector(".js-skills-bg").classList.add("hide");
+    },
+  });
 });
 
 const slider = new Slider(".js-skills-slider");
@@ -175,6 +185,16 @@ document.querySelector(".js-skills-back-btn").addEventListener("click", () => {
       document.querySelector(".js-text-skills").classList.remove("hide");
       skillsTextAppear.play();
       sliderNav.setTo(sliderNav.current);
+    },
+  });
+
+  anime({
+    targets: ".js-skills-bg",
+    easing: "easeOutCubic",
+    duration: 250,
+    opacity: 1,
+    begin: () => {
+      document.querySelector(".js-skills-bg").classList.remove("hide");
     },
   });
 });
