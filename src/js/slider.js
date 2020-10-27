@@ -47,7 +47,7 @@ class Slider {
     const direction = reverse ? "reverse" : "normal";
     anime({
       targets: this.elem.querySelector(".js-skill-desc"),
-      width: [0, "50%"],
+      width: [0, "45%"],
       duration: 800,
       easing: "easeOutCubic",
       direction: reverse ? "reverse" : "normal",
