@@ -196,6 +196,23 @@
   }
 }
 
+.label-drag-skills {
+  position: absolute;
+  bottom: 32px;
+  left: 42px;
+  font-size: v.$font-size-xs;
+  transform: rotate(-90deg);
+  z-index: 1;
+
+  @include mx.screen-m {
+    color: v.$color-primary;
+  }
+
+  @include mx.screen-land {
+    color: unset;
+  }
+}
+
 .skills {
   position: relative;
   width: 100%;
@@ -240,7 +257,7 @@
     }
 
     @include mx.screen-land {
-      width: 50%;
+      min-width: 55%;
       margin-top: 16px;
       height: 312px;
     }
@@ -307,6 +324,10 @@
 
     ul {
       padding-top: 8px;
+
+      @include mx.screen-land {
+        padding-top: 4px;
+      }
     }
 
     li {
@@ -314,6 +335,10 @@
 
       &::before {
         content: "// ";
+      }
+
+      @include mx.screen-land {
+        padding: unset;
       }
     }
 
@@ -372,10 +397,6 @@
       top: unset;
       bottom: unset;
       margin-bottom: 64px;
-    }
-
-    @include mx.screen-land {
-      margin-bottom: 24px;
     }
   }
 
