@@ -29,3 +29,9 @@
     @content;
   }
 }
+
+@mixin screen-land-m {
+  @media only screen and (orientation: landscape) and (max-height: 512px) and (min-width: v.$width-m) {
+    @content;
+  }
+}

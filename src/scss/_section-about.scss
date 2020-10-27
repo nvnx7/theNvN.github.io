@@ -4,10 +4,6 @@
 .section__content--about {
   position: relative;
   overflow: hidden;
-
-  @include mx.screen-land {
-    padding-top: 32px;
-  }
 }
 
 .text-appear {

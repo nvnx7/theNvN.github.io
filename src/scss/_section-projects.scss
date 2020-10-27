@@ -51,9 +51,9 @@
     align-items: center;
   }
 
-  @include mx.screen-land {
-    margin-top: unset;
-  }
+  // @include mx.screen-land {
+  //   margin-top: unset;
+  // }
 
   &__list-wrapper {
     position: absolute;

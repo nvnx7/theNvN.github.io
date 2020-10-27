@@ -1,6 +1,10 @@
 @use "variables" as v;
 @use "mixins" as mx;
 
+.section--intro {
+  border-bottom: solid v.$color-primary 1px;
+}
+
 .section__content--intro {
   display: flex;
   flex-direction: column;
