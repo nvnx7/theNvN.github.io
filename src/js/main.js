@@ -21,7 +21,12 @@ const skillsTextAppear = new TextAppearAnim(".js-text-skills");
 const projectsTextAppear = new TextAppearAnim(".js-text-projects");
 const connectTextAppear = new TextAppearAnim(".js-text-connect");
 
+const animationsPlayStatus = [false, false, false, false, false];
+
 const fullPage = new FullPage(".js-full-page", (idx) => {
+  // If already played don't play again
+  if (animationsPlayStatus[idx]) return;
+
   switch (idx) {
     case 0:
       playLogoAnim();
@@ -41,6 +46,10 @@ const fullPage = new FullPage(".js-full-page", (idx) => {
     case 4:
       connectTextAppear.play();
   }
+  animationsPlayStatus[idx] = true;
+
+  // If all played detach callback
+  if (Math.min(...animationsPlayStatus) == 1) fullPage.callback = null;
 });
 
 const opacitySkillsText = {
