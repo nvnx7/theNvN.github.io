@@ -1,5 +1,4 @@
 import anime from "animejs/lib/anime.es.js";
-import HamburgerButton from "./hamburgerButton.js";
 import { SmallWidthNavbar, LargeWidthNavbar } from "./navbar.js";
 import "../scss/style.scss";
 import FullPage from "./fullPage.js";
@@ -12,12 +11,7 @@ import MouseMoveAnim from "./mouseMoveAnim.js";
 import { ScrambleText } from "./scrambleText.js";
 import projects from "./projectsData";
 
-const smallNavbar = new SmallWidthNavbar(".js-small-width-nav");
-const Btn = new HamburgerButton(".js-btn-toggle-nav", (isOpen) => {
-  console.log("Clicked! State " + isOpen);
-  if (isOpen) smallNavbar.open();
-  else smallNavbar.close();
-});
+new SmallWidthNavbar(".js-small-width-nav", ".js-btn-toggle-nav");
 
 const largeWidthNavbar = new LargeWidthNavbar(".js-large-width-navbar");
 const salutationTextAppear = new TextAppearAnim(".js-text-greet-salutation");
@@ -279,6 +273,4 @@ new MouseMoveAnim(".js-contact-links", ".js-contact-bg-icon", {
 fullPage.setUpWithNavbar(largeWidthNavbar);
 fullPage.init();
 
-document.getElementById("section-projects").scrollIntoView();
-
-Btn;
+// document.getElementById("section-projects").scrollIntoView();
