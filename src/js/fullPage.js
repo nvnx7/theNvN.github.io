@@ -11,7 +11,7 @@ export default class FullPage {
 
   _isSectionInViewPort(idx) {
     const rect = this.sections[idx].getBoundingClientRect();
-    return rect.top < 0.3 * window.innerHeight && rect.top >= 0;
+    return rect.top < 0.65 * window.innerHeight && rect.top >= 0;
   }
 
   _loop() {
