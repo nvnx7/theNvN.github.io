@@ -2,27 +2,52 @@ import anime from "animejs/lib/anime.es.js";
 import { ScrambleText } from "./scrambleText.js";
 
 class SmallWidthNavbar {
-  constructor(query) {
+  constructor(query, btnQuery) {
     this.elem = document.querySelector(query);
+    this.btnElem = document.querySelector(btnQuery);
     this.labels = this.elem.querySelectorAll(".js-link-label");
+    this.stateOpen = false;
+    this.animating = false;
+    // this.switchButton = null;
+
+    // When a link is clicked
+    this.elem.addEventListener("click", (e) => {
+      if (
+        e.target.tagName == "A" ||
+        e.target.classList.contains("js-link-label")
+      )
+        this.close();
+    });
+
+    this.btnElem.addEventListener("click", () => {
+      if (this.stateOpen) this.close();
+      else this.open();
+    });
   }
 
   open() {
+    this.animating = true;
     anime({
-      duration: 600,
+      duration: 500,
       autoplay: true,
       easing: "easeOutCubic",
       targets: this.elem,
       translateX: [0, "-100%"],
       begin: () => {
+        this._animateButton();
         this.labels.forEach((elem) => {
           new ScrambleText(elem, { delay: 100 }).scramble();
         });
+      },
+      complete: () => {
+        this.stateOpen = !this.stateOpen;
+        this.animating = false;
       },
     });
   }
 
   close() {
+    this.animating = true;
     anime({
       duration: 500,
       autoplay: true,
@@ -31,11 +56,42 @@ class SmallWidthNavbar {
       translateX: [0, "-100%"],
       direction: "reverse",
       begin: () => {
+        this._animateButton(true);
         this.labels.forEach((elem) => {
           new ScrambleText(elem, { delay: 100 }).scramble(true);
         });
       },
+      complete: () => {
+        this.stateOpen = !this.stateOpen;
+        this.animating = false;
+      },
     });
+  }
+
+  _animateButton(reverse = false) {
+    const direction = reverse ? "reverse" : "normal";
+
+    anime
+      .timeline({
+        easing: "easeOutQuad",
+        duration: 200,
+        direction,
+      })
+      .add({
+        targets: this.btnElem.children,
+        width: ["100%", "0%"],
+      })
+      .add({
+        targets: [this.btnElem.firstElementChild],
+        keyframes: [{ rotate: [0, 45] }, { width: "100%" }],
+      })
+      .add(
+        {
+          targets: [this.btnElem.lastElementChild],
+          keyframes: [{ rotate: [0, -45] }, { width: "100%" }],
+        },
+        200
+      );
   }
 }
 
