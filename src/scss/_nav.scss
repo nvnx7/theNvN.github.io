@@ -43,11 +43,15 @@
 }
 
 .btn-toggle-nav {
+  // display: flex;
+  // flex-direction: column;
+  // justify-content: space-between;
   position: relative;
   cursor: pointer;
   width: 32px;
   height: 32px;
   margin: 2px 4px;
+  overflow: hidden;
 
   @include mx.screen-m {
     display: none;
@@ -65,8 +69,9 @@
     background-color: v.$color-tertiary;
 
     &--top {
-      top: 0;
-      left: 0;
+      top: 12%;
+      left: 12%;
+      transform-origin: left top;
     }
 
     &--center {
@@ -75,11 +80,13 @@
       right: 0;
       margin-left: auto;
       margin-right: auto;
+      transform-origin: center center;
     }
 
     &--bottom {
-      top: 100%;
-      right: 0;
+      left: 12%;
+      bottom: 12%;
+      transform-origin: left bottom;
     }
   }
 }
@@ -130,7 +137,7 @@
       }
 
       @include mx.screen-land {
-        padding: 16px;
+        padding: 12px;
       }
     }
   }
