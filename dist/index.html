@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Naveen</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="images/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="images/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="images/favicon-16x16.png"
+    />
+    <link rel="manifest" href="images/site.webmanifest" />
+
+    <style>
+      @font-face {
+        font-family: "rz-bold";
+        src: url("https://d33wubrfki0l68.cloudfront.net/f3186e7f4b56c63f574671af3000fd4bf8c51332/49de9/fonts/rezozero/rz-bold.eot");
+        src: url("https://d33wubrfki0l68.cloudfront.net/f3186e7f4b56c63f574671af3000fd4bf8c51332/49de9/fonts/rezozero/rz-bold.eot#iefix")
+            format("embedded-opentype"),
+          url("https://d33wubrfki0l68.cloudfront.net/6c20ef9ba5c8c01672467d91da6bd74522ebcf6c/ba54e/fonts/rezozero/rz-bold.woff2")
+            format("woff2"),
+          url("https://d33wubrfki0l68.cloudfront.net/a9ecebfc0a7c9a3fca8cfa77361749c23bf6f01f/c05e8/fonts/rezozero/rz-bold.woff")
+            format("woff"),
+          url("https://d33wubrfki0l68.cloudfront.net/f57fe473796f6ac89caa77ae02193fcadab8b994/07b4b/fonts/rezozero/rz-bold.svg")
+            format("svg");
+        font-style: normal;
+        font-weight: bold;
+      }
+
+      @font-face {
+        font-family: "rz-regular";
+        src: url("https://d33wubrfki0l68.cloudfront.net/a2a2e60773e19d6ee1cf922f7141a7b46d4d19cf/4264c/fonts/rezozero/rz-regular.eot");
+        src: url("https://d33wubrfki0l68.cloudfront.net/a2a2e60773e19d6ee1cf922f7141a7b46d4d19cf/4264c/fonts/rezozero/rz-regular.eot#iefix")
+            format("embedded-opentype"),
+          url("https://d33wubrfki0l68.cloudfront.net/42a1250d376805641ea1293a09d0f339d9138f7c/82579/fonts/rezozero/rz-regular.woff2")
+            format("woff2"),
+          url("https://d33wubrfki0l68.cloudfront.net/ced4ea2d52c6493542244e03056e72e24efa2020/de4df/fonts/rezozero/rz-regular.woff")
+            format("woff"),
+          url("https://d33wubrfki0l68.cloudfront.net/a86136c3aae1eca151ace3442768510c960ced28/7e4b7/fonts/rezozero/rz-regular.svg")
+            format("svg");
+        font-style: normal;
+        font-weight: normal;
+      }
+    </style>
+  <link href="css/main.css" rel="stylesheet"></head>
+  <body>
+    <header class="header">
+      <svg class="header__logo" viewBox="0 0 500 500">
+        <path
+          class="logo__fragment"
+          fill="#ea5455"
+          stroke="#ea5455"
+          stroke-width="6"
+          stroke-dasharray="700"
+          d="M248.43 150.45 L249.63 149.05 L263.13 220.7 L124.63 380.75 L46.5 380.75Z"
+        />
+
+        <path
+          class="logo__fragment"
+          fill="#e5e5e5"
+          stroke="#e5e5e5"
+          stroke-width="6"
+          stroke-dasharray="700"
+          d="M263.08 353.73 L262.08 354.83 L248.57 283.17 L387.08 123.13 L465.2 123.13Z"
+        />
+      </svg>
+      <div class="btn-toggle-nav btn-toggle-nav--is-open js-btn-toggle-nav">
+        <div class="btn-toggle-nav__bar btn-toggle-nav__bar--top"></div>
+        <div class="btn-toggle-nav__bar btn-toggle-nav__bar--center"></div>
+        <div class="btn-toggle-nav__bar btn-toggle-nav__bar--bottom"></div>
+      </div>
+    </header>
+    <nav class="nav nav--small-width js-small-width-nav">
+      <a href="#section-intro" class="nav__link">
+        <span class="nav__link-label js-link-label" data-label="Intro"
+          >Intro</span
+        >
+      </a>
+      <a href="#section-about" class="nav__link">
+        <span class="nav__link-label js-link-label" data-label="About"
+          >About</span
+        >
+      </a>
+      <a href="#section-skills" class="nav__link">
+        <span class="nav__link-label js-link-label" data-label="Skills"
+          >Skills</span
+        >
+      </a>
+      <a href="#section-projects" class="nav__link">
+        <span class="nav__link-label js-link-label" data-label="Projects"
+          >Projects</span
+        >
+      </a>
+      <a href="#section-connect" class="nav__link">
+        <span class="nav__link-label js-link-label" data-label="Connect"
+          >Connect</span
+        >
+      </a>
+    </nav>
+
+    <nav class="nav nav--large-width js-large-width-navbar">
+      <a href="#section-intro" class="nav__link js-nav-link">
+        <span class="nav__link-indicator js-nav-link-indicator"></span>
+        <span class="nav__link-number js-nav-link-number">01</span>
+        <span
+          class="nav__link-label js-nav-link-label"
+          data-label="Intro"
+        ></span>
+      </a>
+      <a href="#section-about" class="nav__link js-nav-link">
+        <span class="nav__link-indicator js-nav-link-indicator"></span>
+        <span class="nav__link-number js-nav-link-number">02</span>
+        <span
+          class="nav__link-label js-nav-link-label"
+          data-label="About"
+        ></span>
+      </a>
+      <a href="#section-skills" class="nav__link js-nav-link">
+        <span class="nav__link-indicator js-nav-link-indicator"></span>
+        <span class="nav__link-number js-nav-link-number">03</span>
+        <span
+          class="nav__link-label js-nav-link-label"
+          data-label="Skills"
+        ></span>
+      </a>
+      <a href="#section-projects" class="nav__link js-nav-link">
+        <span class="nav__link-indicator js-nav-link-indicator"></span>
+        <span class="nav__link-number js-nav-link-number">04</span>
+        <span
+          class="nav__link-label js-nav-link-label"
+          data-label="Projects"
+        ></span>
+      </a>
+      <a href="#section-connect" class="nav__link js-nav-link">
+        <span class="nav__link-indicator js-nav-link-indicator"></span>
+        <span class="nav__link-number js-nav-link-number">05</span>
+        <span
+          class="nav__link-label js-nav-link-label"
+          data-label="Connect"
+        ></span>
+      </a>
+    </nav>
+
+    <div class="full-page js-full-page">
+      <section
+        id="section-intro"
+        class="section section--intro js-full-page-section"
+      >
+        <div class="section__title section__title--intro">
+          <div>INTRO</div>
+        </div>
+        <div class="section__content section__content--intro">
+          <svg class="logo" viewBox="0 0 500 500">
+            <path
+              class="logo__fragment js-logo-fragment-first"
+              fill="#ea5455"
+              stroke="#ea5455"
+              stroke-width="6"
+              stroke-dasharray="700"
+              d="M248.43 150.45 L249.63 149.05 L263.13 220.7 L124.63 380.75 L46.5 380.75Z"
+            />
+
+            <path
+              class="logo__fragment js-logo-fragment-second"
+              fill="#e5e5e5"
+              stroke="#e5e5e5"
+              stroke-width="6"
+              stroke-dasharray="700"
+              d="M263.08 353.73 L262.08 354.83 L248.57 283.17 L387.08 123.13 L465.2 123.13Z"
+            />
+
+            <g
+              class="logo__strokes-g js-strokes-g-first"
+              stroke="#ea5455"
+              stroke-width="0.5"
+            >
+              <line
+                class="js-stroke-1"
+                x1="249.63"
+                y1="149.05"
+                x2="46.5"
+                y2="380.75"
+              />
+              <line
+                class="js-stroke-2"
+                x1="46.5"
+                y1="380.75"
+                x2="124.63"
+                y2="380.75"
+              />
+              <line
+                class="js-stroke-3"
+                x1="124.63"
+                y1="380.75"
+                x2="263.13"
+                y2="220.7"
+              />
+              <line
+                class="js-stroke-4"
+                x1="263.13"
+                y1="220.7"
+                x2="249.63"
+                y2="149.05"
+              />
+            </g>
+
+            <g
+              class="logo__strokes-g js-strokes-g-second"
+              stroke="#ea5455"
+              stroke-width="0.5"
+            >
+              <line
+                class="js-stroke-1"
+                x1="262.08"
+                y1="354.83"
+                x2="465.2"
+                y2="123.13"
+              />
+              <line
+                class="js-stroke-2"
+                x1="465.2"
+                y1="123.13"
+                x2="387.08"
+                y2="123.13"
+              />
+              <line
+                class="js-stroke-3"
+                x1="387.08"
+                y1="123.13"
+                x2="248.57"
+                y2="283.17"
+              />
+              <line
+                class="js-stroke-4"
+                x1="248.57"
+                y1="283.17"
+                x2="262.08"
+                y2="354.83"
+              />
+            </g>
+          </svg>
+          <div class="text-greet">
+            <div
+              class="text-appear text-appear--salutation js-text-greet-salutation"
+            >
+              <div class="text-appear__line-top js-line-top"></div>
+              <div class="text-appear__text js-text">Hi. I'm</div>
+              <div class="text-appear__line-bottom js-line-bottom"></div>
+            </div>
+
+            <div
+              class="text-appear text-appear--text-greet-name js-text-greet-name"
+            >
+              <div class="text-appear__line-top js-line-top"></div>
+              <div class="text-appear__text js-text">Naveen.</div>
+              <div class="text-appear__line-bottom js-line-bottom"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="section-about"
+        class="section section--about js-full-page-section"
+      >
+        <div class="section__title section__title--about">
+          <div>ABOUT</div>
+        </div>
+        <div class="section__content section__content--about">
+          <div class="text-appear text-appear--text-about js-text-about">
+            <div class="text-appear__line-top js-line-top"></div>
+            <div class="text-appear__text js-text">
+              I am a developer based in India
+            </div>
+            <span class="text-appear__text js-text red-text">&</span>
+            <span class="text-appear__text js-text">
+              I can code some dope stuff.
+            </span>
+            <div class="text-appear__line-bottom js-line-bottom"></div>
+          </div>
+
+          <p class="text-about-para">
+            Hello! I'm Naveen Sahu, a developer from India. I enjoy creating
+            things that breathe on beautifully written code, whether that be
+            websites, apps or anything similar. While building, my aim is always
+            to write clutter-free code & a cleaner, easy on eyes UI. <br />
+            <br />
+            When not buried into the screen, you can find enjoying a book, a non
+            - fiction most probably. Or upgrading my current skill-set.
+          </p>
+
+          <svg class="low-poly-pic js-low-poly-pic" viewBox="0 0 256 256"></svg>
+
+          <span class="label-me">// That's me</span>
+        </div>
+      </section>
+
+      <section
+        id="section-skills"
+        class="section section--skills js-full-page-section"
+      >
+        <div class="section__title section__title--skills">
+          <div>SKILLS</div>
+        </div>
+        <div class="section__content section__content--skills">
+          <div class="text-hover-prompt js-text-hover-prompt hide">show me</div>
+          <div class="bg-wrapper js-skills-bg">
+            <img src="images/brain.svg" alt="brain" />
+            <img src="images/code.svg" alt="code" />
+
+            <img src="images/computer.svg" alt="computer" />
+          </div>
+
+          <div class="text-appear text-appear--text-skills js-text-skills">
+            <div class="text-appear__line-top js-line-top"></div>
+            <span class="text-appear__text js-text"
+              >I can do a thing or two. That includes building on</span
+            >
+            <span
+              class="text-appear__text js-text skill-name skill-name--web js-skill-name-web"
+              >web</span
+            >
+            <span class="text-appear__text js-text">&</span>
+            <span
+              class="text-appear__text js-text skill-name skill-name--android js-skill-name-android"
+              >android</span
+            >
+            <span class="text-appear__text js-text">.</span>
+            <span class="text-appear__text js-text"
+              >Also, had my hands dirty on</span
+            >
+            <span
+              class="text-appear__text js-text skill-name skill-name--ml js-skill-name-ml"
+              >ML</span
+            >
+            <span class="text-appear__text js-text">a lot</span>
+            <span class="text-appear__text js-text">& played a bit on</span>
+            <span
+              class="text-appear__text js-text skill-name skill-name--ethereum js-skill-name-ethereum"
+              >ethereum</span
+            >
+            <span class="text-appear__text js-text">blockchain.</span>
+            <div class="text-appear__line-bottom js-line-bottom"></div>
+          </div>
+
+          <div class="skills-wrapper js-skills-wrapper invisible">
+            <div class="cursor js-cursor hide">
+              <img
+                class="cursor__arrow cursor__arrow--left"
+                src="images/arrow-left-2.svg"
+                alt="arrow left"
+              />
+              <img
+                class="cursor__arrow cursor__arrow--right"
+                src="images/arrow-right-2.svg"
+                alt="arrow right"
+              />
+              <div class="cursor__progress-bar js-cursor-progress hide"></div>
+            </div>
+            <div class="skills js-skills-slider">
+              <span class="label-drag-skills">// Drag</span>
+              <div class="back-btn js-skills-back-btn">
+                <img src="images/close.svg" alt="close button" />
+              </div>
+              <div class="skills__box skills__box">
+                <div class="skills__skill-icons js-skill-icons">
+                  <img
+                    class="skills__skill-icon skills__skill-icon--web"
+                    src="images/web.svg"
+                    alt="web"
+                  />
+                  <img
+                    class="skills__skill-icon skills__skill-icon--android hide"
+                    src="images/android.svg"
+                    alt="web"
+                  />
+                  <img
+                    class="skills__skill-icon skills__skill-icon--ml hide"
+                    src="images/ml.svg"
+                    alt="web"
+                  />
+                  <img
+                    class="skills__skill-icon skills__skill-icon--ethereum hide"
+                    src="images/ethereum.svg"
+                    alt="web"
+                  />
+                </div>
+                <div class="skills__skill-desc js-skill-desc">
+                  <div class="skills__skill-texts js-skill-texts">
+                    <div class="skills__skill-text hide">
+                      <p>
+                        I'm an experienced full - stack web developer and can
+                        design modern, clean & aesthetic web apps with clean
+                        code that feature :
+                      </p>
+                      <ul>
+                        <li>Responsiveness across devices</li>
+                        <li>Minimalistic Design</li>
+                        <li>Fast & Optimized</li>
+                        <li>Scalable & Encapsulated Code</li>
+                        <li>Engaging Motions</li>
+                      </ul>
+                    </div>
+                    <div class="skills__skill-text hide">
+                      <p>
+                        I can make native apps on the Android platform, both in
+                        Java & Kotlin language, though I'd prefer Kotlin much
+                        more. I am capable of delivering apps featuring :
+                      </p>
+                      <ul>
+                        <li>Clean Material Design</li>
+                        <li>Recommended Latest Components</li>
+                        <li>Responsive With Screen Widths</li>
+                        <li>Fast & Memory Efficient Performance</li>
+                        <li>MVVM Architecture</li>
+                      </ul>
+                    </div>
+                    <div class="skills__skill-text hide">
+                      <p>
+                        I've been studying Machine/Deep Learning from numerous
+                        sources & have deployed trained models in multiple
+                        applications. Interested in deploying Deep Learning
+                        models on edge devices like smartphones.
+                      </p>
+                      <ul>
+                        See :
+                        <li>
+                          <a
+                            href="https://confirm.udacity.com/JXSUER2D"
+                            target="_blank"
+                            >AI with Python (Udacity)</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="https://www.coursera.org/account/accomplishments/verify/A33K6LK4QFPD?utm_campaign=copybutton_certificate&utm_medium=certificate&utm_source=link"
+                            target="_blank"
+                            >Machine Learning (Coursera)</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="https://www.coursera.org/account/accomplishments/specialization/RWWMMU4WHRDU"
+                            target="_blank"
+                            >Deep Learning (Coursera)</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="https://www.coursera.org/account/accomplishments/specialization/3UVXWMR7Y3KF"
+                            target="_blank"
+                            >TensorFlow Developer (Coursera)</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="https://confirm.udacity.com/EC4927NS"
+                            target="_blank"
+                            >Intel Edge AI (Udacity)</a
+                          >
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="skills__skill-text hide">
+                      <p>
+                        I've invested a significant time on learning dApp
+                        development on ethereum blockchain, especially
+                        completing ConsenSys's Blockchain Bootcamp &
+                        CryptoZombies tutorials. Looking forward to developing
+                        something good & useful on it.
+                      </p>
+                      <ul>
+                        See :
+                        <li>
+                          <a
+                            href="https://drive.google.com/file/d/1pSPEPZY4WC3a_9A7CLs9HgWF_U-wv-48/view"
+                            target="_blank"
+                            >Blockchain Developer Bootcamp</a
+                          >
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div
+                    class="skills__skill-title js-skill-title"
+                    data-labels="WEB,ANDROID,ML/DL,ETHEREUM"
+                  >
+                    WEB
+                  </div>
+                  <div
+                    class="skills__skill-index-container js-skill-index-container"
+                  >
+                    <div class="skills__skill-index">01</div>
+                  </div>
+                </div>
+                <div class="skills__skill-tools">
+                  <div class="skills__skill-tools-label">// Tools</div>
+                  <div
+                    class="skills__skill-tools-container skills__skill-tools-container--web js-skill-tools-container hide"
+                  >
+                    <div class="skills__skill-tool-item">vscode</div>
+                    <div class="skills__skill-tool-item">html5 / bem</div>
+                    <div class="skills__skill-tool-item">css3 / sass</div>
+                    <div class="skills__skill-tool-item">
+                      javascript / jquery
+                    </div>
+                    <div class="skills__skill-tool-item">react</div>
+                    <div class="skills__skill-tool-item">node / express</div>
+                    <div class="skills__skill-tool-item">mongodb / sql</div>
+                    <div class="skills__skill-tool-item">webpack / gulp</div>
+                    <div class="skills__skill-tool-item">& more</div>
+                  </div>
+                  <div
+                    class="skills__skill-tools-container skills__skill-tools-container--android js-skill-tools-container hide"
+                  >
+                    <div class="skills__skill-tool-item">android studio</div>
+                    <div class="skills__skill-tool-item">jetpack library</div>
+                    <div class="skills__skill-tool-item">kotlin</div>
+                    <div class="skills__skill-tool-item">java</div>
+                    <div class="skills__skill-tool-item">material design</div>
+                    <div class="skills__skill-tool-item">mvvm</div>
+                    <div class="skills__skill-tool-item">firebase</div>
+                  </div>
+                  <div
+                    class="skills__skill-tools-container skills__skill-tools-container--ml js-skill-tools-container hide"
+                  >
+                    <div class="skills__skill-tool-item">
+                      anaconda / python3
+                    </div>
+                    <div class="skills__skill-tool-item">jupyter notebooks</div>
+                    <div class="skills__skill-tool-item">numpy</div>
+                    <div class="skills__skill-tool-item">tensorflow</div>
+                    <div class="skills__skill-tool-item">pytorch</div>
+                    <div class="skills__skill-tool-item">openvino</div>
+                  </div>
+                  <div
+                    class="skills__skill-tools-container skills__skill-tools-container--ethereum js-skill-tools-container hide"
+                  >
+                    <div class="skills__skill-tool-item">remix ide</div>
+                    <div class="skills__skill-tool-item">solidity</div>
+                    <div class="skills__skill-tool-item">infura</div>
+                    <div class="skills__skill-tool-item">truffle</div>
+                    <div class="skills__skill-tool-item">ganache</div>
+                    <div class="skills__skill-tool-item">ipfs</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="skill-nav js-slider-navbar" data-total="4">
+              <img
+                src="images/arrow-left.svg"
+                alt="previous"
+                class="skill-nav__btn skill-nav__btn--prev js-btn-prev"
+              />
+              <div class="skill-nav__bar js-nav-bar">
+                <div class="skill-nav__track js-nav-track"></div>
+                <div class="skill-nav__track-checkpoints js-nav-checkpoints">
+                  <div class="skill-nav__track-checkpoint" data-checkpoint="0">
+                    /
+                  </div>
+                  <div class="skill-nav__track-checkpoint" data-checkpoint="1">
+                    /
+                  </div>
+                  <div class="skill-nav__track-checkpoint" data-checkpoint="2">
+                    /
+                  </div>
+                  <div class="skill-nav__track-checkpoint" data-checkpoint="3">
+                    /
+                  </div>
+                </div>
+                <span class="skill-nav__index js-nav-index">
+                  <span class="skill-nav__index-current js-current-index"
+                    >01</span
+                  >
+                  <span class="skill-nav__index-divider">/</span>
+                  <span class="skill-nav__index-total">04</span>
+                </span>
+              </div>
+              <img
+                src="images/arrow-right.svg"
+                alt="next"
+                class="skill-nav__btn skill-nav__btn--next js-btn-next"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="section-projects"
+        class="section section--projects js-full-page-section"
+      >
+        <div class="section__title section__title--projects">
+          <div>PROJECTS</div>
+        </div>
+        <div class="section__content section__content--projects">
+          <div class="text-appear text-appear--text-projects js-text-projects">
+            <div class="text-appear__line-top js-line-top"></div>
+            <div class="text-appear__text js-text">
+              A few things that I built...
+            </div>
+            <div class="text-appear__line-bottom js-line-bottom"></div>
+          </div>
+
+          <div class="project js-projects">
+            <div class="project__list-wrapper js-project-list-wrapper">
+              <span class="label-drag">// Drag</span>
+              <div class="project__list-item-pos js-list-item-pos"></div>
+              <div class="cursor js-cursor-projects hide">
+                <img
+                  class="cursor__arrow cursor__arrow--up"
+                  src="images/arrow-up.svg"
+                  alt="arrow up"
+                />
+                <img
+                  class="cursor__arrow cursor__arrow--down"
+                  src="images/arrow-down.svg"
+                  alt="arrow down"
+                />
+              </div>
+
+              <ul class="project__list js-project-list">
+                <!-- To be filled dynamically following template -->
+                <!-- <li class="project__title" data-key="idx">Title</li>-->
+              </ul>
+            </div>
+
+            <div class="project__desc js-project-desc">
+              <div
+                class="project__name js-project-name"
+                data-label="EventManagement"
+              ></div>
+              <p class="project__about js-project-about"></p>
+              <div class="project__tools js-project-tools">
+                <div class="project__tools-label">// Built with</div>
+                <ul class="project__tools-list js-tools-list">
+                  <!-- <li class="project__tool">tool-name</li> -->
+                </ul>
+              </div>
+              <div class="project__links js-project-links">
+                <div class="project__links-label">// Links</div>
+                <ul class="project__links-list js-links-list">
+                  <!-- <li class="project__link">
+                    <a href="" target="__blank">Link label</a>
+                  </li> -->
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="section-connect"
+        class="section section--connect js-full-page-section"
+      >
+        <div class="section__title section__title--connect">
+          <div>CONNECT</div>
+        </div>
+        <div class="section__content section__content--projects">
+          <div class="text-appear text-appear--text-connect js-text-connect">
+            <div class="text-appear__line-top js-line-top"></div>
+            <div class="text-appear__text js-text">
+              Let's build something interesting...
+            </div>
+            <div class="text-appear__line-bottom js-line-bottom"></div>
+          </div>
+
+          <div class="contact">
+            <img
+              class="contact__background-icon js-contact-bg-icon"
+              src="images/paper-plane.svg"
+              alt="paper plane"
+            />
+
+            <div class="contact__desc">
+              <a
+                href="mailto:thenvnsahu@gmail.com"
+                class="contact__email js-contact-email"
+                >thenvnsahu<br />&nbsp;@gmail.com</a
+              >
+
+              <p class="contact__text">
+                I love to build awesome aesthetic stuff. Currently, I'm
+                available for freelance work. Hit me up & we'll talk.
+              </p>
+              <div class="contact__sign">Naveen Sahu</div>
+            </div>
+
+            <div class="contact__links js-contact-links">
+              <div class="contact__links-label">// Links</div>
+              <a
+                href="https://twitter.com/heyNvN"
+                target="_blank"
+                class="contact__link js-link-twitter"
+              >
+                <img
+                  class="contact__link-icon"
+                  src="images/twitter.svg"
+                  alt="twitter"
+                />
+                <span class="contact__link-handle">/ heyNvN</span>
+              </a>
+              <a
+                href="https://github.com/thenvn"
+                target="_blank"
+                class="contact__link js-link-github"
+              >
+                <img
+                  class="contact__link-icon"
+                  src="images/github.svg"
+                  alt="github"
+                />
+                <span class="contact__link-handle">/ theNvN</span>
+              </a>
+              <a
+                href="https://codepen.io/thenvn"
+                target="_blank"
+                class="contact__link js-link-codepen"
+              >
+                <img
+                  class="contact__link-icon"
+                  src="images/codepen.svg"
+                  alt="codepen"
+                />
+                <span class="contact__link-handle">/ theNvN</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  <script src="js/main.js"></script></body>
+</html>
