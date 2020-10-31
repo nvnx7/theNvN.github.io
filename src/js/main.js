@@ -301,5 +301,3 @@ new MouseMoveAnim(".js-contact-links", ".js-contact-bg-icon", {
 
 fullPage.setUpWithNavbar(largeWidthNavbar);
 fullPage.init();
-
-// document.getElementById("section-projects").scrollIntoView();
