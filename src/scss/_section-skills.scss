@@ -191,8 +191,8 @@
   }
 
   @include mx.screen-land {
-    width: 42px;
-    height: 42px;
+    width: 36px;
+    height: 36px;
   }
 }
 
@@ -394,9 +394,11 @@
       min-height: unset;
       align-self: flex-end;
       margin-right: 12px;
-      top: unset;
-      bottom: unset;
-      margin-bottom: 64px;
+      bottom: 64px;
+    }
+
+    @include mx.screen-land {
+      bottom: 4px;
     }
   }
 
