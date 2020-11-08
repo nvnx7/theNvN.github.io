@@ -2,7 +2,7 @@
 
 My own personal page for the demonstration of my skills & projects I've worked on.
 
-Link: naveeen.com
+Link: [naveeen.com](https://naveeen.com)
 
 ## Developed By
 
